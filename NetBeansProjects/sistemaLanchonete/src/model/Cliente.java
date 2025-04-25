@@ -1,9 +1,11 @@
 
 package model;
 
+import java.util.List;
+
 public class Cliente {
     private String nome;
-    private Telefone telefone;
+    List <Telefone> telefone_id;
 
     public String getNome() {
         return nome;
@@ -13,17 +15,17 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Telefone getTelefone() {
-        return telefone;
+    public List<Telefone> getTelefone_id() {
+        return telefone_id;
     }
 
-    public void setTelefone(Telefone telefone) {
-        this.telefone = telefone;
+    public void setTelefone_id(List<Telefone> telefone_id) {
+        this.telefone_id = telefone_id;
     }
 
-    public Cliente(String nome, Telefone telefone) {
+    public Cliente(String nome, List telefone_id) {
         this.nome = nome;
-        this.telefone = telefone;
+        this.telefone_id = telefone_id;
     }
     
 }

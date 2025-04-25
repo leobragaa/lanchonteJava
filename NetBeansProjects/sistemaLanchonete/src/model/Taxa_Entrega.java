@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author laboratorio
- */
 public class Taxa_Entrega {
+    private Double taxaEntrega;
+    private Endereco endereco_id;
+
+    public Taxa_Entrega(Double taxaEntrega, Endereco endereco_id) {
+        this.taxaEntrega = taxaEntrega;
+        this.endereco_id = endereco_id;
+    }
+
+    public Double getTaxaEntrega() {
+        return taxaEntrega;
+    }
+
+    public void setTaxaEntrega(Double taxaEntrega) {
+        this.taxaEntrega = taxaEntrega;
+    }
+
+    public Endereco getEndereco_id() {
+        return endereco_id;
+    }
+
+    public void setEndereco_id(Endereco endereco_id) {
+        this.endereco_id = endereco_id;
+    }
     
 }

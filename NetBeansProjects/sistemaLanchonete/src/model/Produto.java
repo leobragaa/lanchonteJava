@@ -1,13 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author laboratorio
- */
+import java.util.List;
+
 public class Produto {
+    private String nome;
+    List<Carrinho>carrinho;
+
+    public Produto(String nome, List<Carrinho> carrinho) {
+        this.nome = nome;
+        this.carrinho = carrinho;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<Carrinho> getCarrinho() {
+        return carrinho;
+    }
+
+    public void setCarrinho(List<Carrinho> carrinho) {
+        this.carrinho = carrinho;
+    }
     
 }

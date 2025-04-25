@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author laboratorio
- */
 public class Dinheiro {
+    private Double valorEntregado;
+
+    public Dinheiro(Double valorEntregado) {
+        this.valorEntregado = valorEntregado;
+    }
+
+    public Double getValorEntregado() {
+        return valorEntregado;
+    }
+
+    public void setValorEntregado(Double valorEntregado) {
+        this.valorEntregado = valorEntregado;
+    }
     
 }

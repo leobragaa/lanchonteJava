@@ -2,19 +2,20 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Pedido {
     
     private String hora_pedido;
     private Cliente cliente_id;
     private Integer numero_pedido;
-    private Carrinho carrinho_id;
     private Date data_pedido;
     private Status_pedidos status_id;
     private Entrega entrega_id;
     private Reembolso reembolso_id;
-
-    public Pedido(String hora_pedido, Cliente cliente_id, Integer numero_pedido, Carrinho carrinho_id, Date data_pedido, Status_pedidos status_id, Entrega entrega_id, Reembolso reembolso_id) {
+    List<Carrinho>carrinho_id;
+    
+    public Pedido(String hora_pedido, Cliente cliente_id, Integer numero_pedido,List carrinho_id, Date data_pedido, Status_pedidos status_id, Entrega entrega_id, Reembolso reembolso_id) {
         this.hora_pedido = hora_pedido;
         this.cliente_id = cliente_id;
         this.numero_pedido = numero_pedido;
@@ -50,11 +51,11 @@ public class Pedido {
         this.numero_pedido = numero_pedido;
     }
 
-    public Carrinho getCarrinho_id() {
+    public List<Carrinho> getCarrinho_id() {
         return carrinho_id;
     }
 
-    public void setCarrinho_id(Carrinho carrinho_id) {
+    public void setCarrinho_id(List carrinho_id) {
         this.carrinho_id = carrinho_id;
     }
 

@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author laboratorio
- */
 public class Status_pedidos {
+    private String progresso;
+    private Pedido pedido;
+
+    public Status_pedidos(String progresso, Pedido pedido) {
+        this.progresso = progresso;
+        this.pedido = pedido;
+    }
+
+    public String getProgresso() {
+        return progresso;
+    }
+
+    public void setProgresso(String progresso) {
+        this.progresso = progresso;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
     
 }
