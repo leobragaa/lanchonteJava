@@ -13,7 +13,7 @@ public class Pedido {
     private Status_pedidos status_id;
     private Entrega entrega_id;
     private Reembolso reembolso_id;
-    List<Carrinho>carrinho_id;
+    private List<Carrinho>carrinho_id;
     
     public Pedido(String hora_pedido, Cliente cliente_id, Integer numero_pedido,List carrinho_id, Date data_pedido, Status_pedidos status_id, Entrega entrega_id, Reembolso reembolso_id) {
         this.hora_pedido = hora_pedido;

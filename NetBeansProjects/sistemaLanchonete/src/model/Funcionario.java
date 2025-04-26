@@ -8,9 +8,8 @@ public class Funcionario {
     private String nome;
     private String cpf;
     private String rg;
-    private Telefone telefone;
-            
-    List<Login>logins;
+    private Telefone telefone;         
+    private List<Login>logins;
 
     public Funcionario(String nome, String cpf, String rg, Telefone telefone, List<Login> logins) {
         this.nome = nome;

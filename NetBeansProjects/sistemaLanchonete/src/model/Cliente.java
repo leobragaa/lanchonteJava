@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Cliente {
     private String nome;
-    List <Telefone> telefone_id;
+    private List <Telefone> telefone_id;
 
     public String getNome() {
         return nome;

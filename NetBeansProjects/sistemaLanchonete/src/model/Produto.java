@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Produto {
     private String nome;
-    List<Carrinho>carrinho;
+    private List<Carrinho>carrinho;
 
     public Produto(String nome, List<Carrinho> carrinho) {
         this.nome = nome;
