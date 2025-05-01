@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class ReembolsoDao {
-    
+import model.Pedido;
+import model.Reembolso;
+
+public interface ReembolsoDao {
+    //
+    public void salvar(ReembolsoDao rembolso);
+    public void editar(ReembolsoDao rembolso);
+    public void delete(ReembolsoDao rembolso);
+    //
+    public Reembolso findTelefoneForId(Integer id);
+    public Reembolso findTelefoneForDd(String motivo);
+    public Reembolso findTelefoneForNumero(Pedido pedido_id);
 }

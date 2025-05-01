@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class Status_pedidosDao {
-    
+import model.Pedido;
+import model.Status_pedidos;
+
+public interface Status_pedidosDao {
+    //
+    public void salvar(Status_pedidosDao statusPedidos);
+    public void editar(Status_pedidosDao statusPedidos);
+    public void delete(Status_pedidosDao statusPedidos);
+    //
+    public Status_pedidos findtStatusPedidosForId(Integer id);
+    public Status_pedidos findtStatusPedidosForProgresso(String progresso);
+    public Status_pedidos findtStatusPedidosForPedido(Pedido pedido);
 }

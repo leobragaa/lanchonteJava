@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class Taxa_EntregaDao {
+import model.Endereco;
+import model.Taxa_Entrega;
+
+public interface Taxa_EntregaDao {
+    //
+    public void salvar(Taxa_EntregaDao taxaDaEntrega);
+    public void editar(Taxa_EntregaDao taxaDaEntrega);
+    public void delete(Taxa_EntregaDao taxaDaEntrega);
+    //
+    public Taxa_Entrega findtTaxaEntregaForId(Integer id);
+    public Taxa_Entrega findtTaxaEntregaForTaxa(Double taxaEntrega);
+    public Taxa_Entrega findtTaxaEntregaForEndereco(Endereco endereco_id);
     
 }
