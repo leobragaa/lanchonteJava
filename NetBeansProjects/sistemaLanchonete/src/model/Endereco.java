@@ -2,16 +2,26 @@
 package model;
 
 public class Endereco {
+    private int id;
     private String rua;
     private String cep;
     private Bairro bairro_id;
     private Double distancia;
 
-    public Endereco(String rua, String cep, Bairro bairro_id, Double distancia) {
+    public Endereco(int id, String rua, String cep, Bairro bairro_id, Double distancia) {
+        this.id = id;
         this.rua = rua;
         this.cep = cep;
         this.bairro_id = bairro_id;
         this.distancia = distancia;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRua() {

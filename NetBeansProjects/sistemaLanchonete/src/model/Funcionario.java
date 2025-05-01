@@ -4,19 +4,28 @@ package model;
 import java.util.List;
 
 public class Funcionario {
-    
+    private int id;
     private String nome;
     private String cpf;
     private String rg;
     private Telefone telefone;         
     private List<Login>logins;
 
-    public Funcionario(String nome, String cpf, String rg, Telefone telefone, List<Login> logins) {
+    public Funcionario(int id, String nome, String cpf, String rg, Telefone telefone, List<Login> logins) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.telefone = telefone;
         this.logins = logins;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
  
     public String getNome() {

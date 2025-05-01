@@ -4,9 +4,23 @@ package model;
 import java.util.List;
 
 public class Cliente {
+    private int id;
     private String nome;
     private List <Telefone> telefone_id;
 
+    public Cliente(String nome, List telefone_id) {
+        this.nome = nome;
+        this.telefone_id = telefone_id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -23,9 +37,5 @@ public class Cliente {
         this.telefone_id = telefone_id;
     }
 
-    public Cliente(String nome, List telefone_id) {
-        this.nome = nome;
-        this.telefone_id = telefone_id;
-    }
     
 }

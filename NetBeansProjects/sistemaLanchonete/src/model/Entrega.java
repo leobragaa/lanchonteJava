@@ -2,6 +2,7 @@
 package model;
 
 public class Entrega {
+    private int id;
     private boolean tipoEntrega;
     private Cliente cliente_id;
     private Delivery deleviry_id;
@@ -14,6 +15,14 @@ public class Entrega {
         this.deleviry_id = deleviry_id;
         this.pedido_id = pedido_id;
         this.status_pedidos_id = status_pedidos_id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean getTipoEntrega() {
