@@ -1,40 +1,50 @@
 package model;
 
 public class Telefone {
-    private int dd;
-    private int numero;
+    private Integer id;
+    private Integer dd;
+    private Integer numero;
     private Funcionario funcionario;
     private Cliente cliente_id;
 
 
-    public Telefone(int dd, int numero, Funcionario funcionario, Cliente cliente_id) {
+    public Telefone(Integer id, Integer dd, Integer numero, Funcionario funcionario, Cliente cliente_id) {
+        this.id = id;
         this.dd = dd;
         this.numero = numero;
         this.funcionario = funcionario;
         this.cliente_id = cliente_id;
     }
-    
-    public Cliente getCliente() {
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Cliente getCliente_id() {
         return cliente_id;
     }
 
-    public void setCliente(Cliente cliente_id) {
+    public void setCliente_id(Cliente cliente_id) {
         this.cliente_id = cliente_id;
     }
 
-    public int getDd() {
+    public Integer getDd() {
         return dd;
     }
 
-    public void setDd(int dd) {
+    public void setDd(Integer dd) {
         this.dd = dd;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 

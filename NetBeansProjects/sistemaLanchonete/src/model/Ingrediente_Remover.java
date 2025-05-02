@@ -2,10 +2,20 @@
 package model;
 
 public class Ingrediente_Remover {
+    private Integer id;
     private String nome;
 
-    public Ingrediente_Remover(String nome) {
+    public Ingrediente_Remover(Integer id, String nome) {
+        this.id = id;
         this.nome = nome;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

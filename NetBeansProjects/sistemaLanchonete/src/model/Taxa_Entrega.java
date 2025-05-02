@@ -2,12 +2,22 @@
 package model;
 
 public class Taxa_Entrega {
+    private Integer id;
     private Double taxaEntrega;
     private Endereco endereco_id;
 
-    public Taxa_Entrega(Double taxaEntrega, Endereco endereco_id) {
+    public Taxa_Entrega(Integer id, Double taxaEntrega, Endereco endereco_id) {
+        this.id = id;
         this.taxaEntrega = taxaEntrega;
         this.endereco_id = endereco_id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(int Integer) {
+        this.id = id;
     }
 
     public Double getTaxaEntrega() {

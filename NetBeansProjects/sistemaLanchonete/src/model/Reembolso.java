@@ -2,14 +2,24 @@
 package model;
 
 public class Reembolso {
+    private Integer id;
     private String motivo;
     private Pedido pedido_id;
 
-    public Reembolso(String motivo, Pedido pedido_id) {
+    public Reembolso(Integer id, String motivo, Pedido pedido_id) {
+        this.id = id;
         this.motivo = motivo;
         this.pedido_id = pedido_id;
     }
+    
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getMotivo() {
         return motivo;
     }

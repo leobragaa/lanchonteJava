@@ -2,20 +2,30 @@
 package model;
 
 public class Ingrediente_Escolha {
-    private Ingrediente_Escolha ingredienteEscolha_id;
+    private Integer id;
+    private Ingrediente_Adicional ingredienteAdicional_id;
     private Ingrediente_Remover ingredienteRemover_id;  
 
-    public Ingrediente_Escolha(Ingrediente_Escolha ingredienteEscolha_id, Ingrediente_Remover ingredienteRemover_id) {
-        this.ingredienteEscolha_id = ingredienteEscolha_id;
+    public Ingrediente_Escolha(Integer id, Ingrediente_Adicional ingredienteAdicional_id, Ingrediente_Remover ingredienteRemover_id) {
+        this.id = id;
+        this.ingredienteAdicional_id = ingredienteAdicional_id;
         this.ingredienteRemover_id = ingredienteRemover_id;
     }
 
-    public Ingrediente_Escolha getIngredienteEscolha_id() {
-        return ingredienteEscolha_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIngredienteEscolha_id(Ingrediente_Escolha ingredienteEscolha_id) {
-        this.ingredienteEscolha_id = ingredienteEscolha_id;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Ingrediente_Adicional getIngredienteAdicional_id() {
+        return ingredienteAdicional_id;
+    }
+
+    public void setIngredienteAdicional_id(Ingrediente_Adicional ingredienteAdicional_id) {
+        this.ingredienteAdicional_id = ingredienteAdicional_id;
     }
 
     public Ingrediente_Remover getIngredienteRemover_id() {

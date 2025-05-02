@@ -2,16 +2,26 @@
 package model;
 
 public class Carrinho {
+    private Integer id;
     private Produto produto_id;
     private Ingrediente_Escolha ingredienteEscolha;
     private Integer quantidade;
 
-    public Carrinho(Produto produto_id, Ingrediente_Escolha ingredienteEscolha, Integer quantidade) {
+    public Carrinho(Integer id, Produto produto_id, Ingrediente_Escolha ingredienteEscolha, Integer quantidade) {
+        this.id =  id;
         this.produto_id = produto_id;
         this.ingredienteEscolha = ingredienteEscolha;
         this.quantidade = quantidade;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public Produto getProduto_id() {
         return produto_id;
     }
