@@ -1,12 +1,14 @@
 
 package dao;
 
+import java.util.List;
 import model.Endereco;
 
 public interface EntregaDao {
     //
     public void salvar (EntregaDao entrega);
     public void editar (EntregaDao entrega);
+    public List listar (EntregaDao entrega);
     public void delete (EntregaDao entrega);
     //
     public Endereco findIdForEntrega(Integer id);

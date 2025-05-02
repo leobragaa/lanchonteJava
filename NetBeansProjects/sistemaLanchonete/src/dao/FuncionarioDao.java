@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.util.List;
 import model.Funcionario;
 import model.Login;
 
@@ -8,6 +9,7 @@ public interface FuncionarioDao {
     //
     public void salvar(Funcionario funcionario);
     public void editar(Funcionario funcionario);
+    public List listar(Funcionario funcionario);
     public void delete(Funcionario funcionario);
     //
     public Funcionario findIdForFuncionario(Integer id);

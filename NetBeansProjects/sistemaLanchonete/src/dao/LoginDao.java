@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.util.List;
 import model.Login;
 
 public interface LoginDao {
@@ -8,6 +9,7 @@ public interface LoginDao {
     public void criarConexao();
     public void salvar (Login login);
     public void editar (Login login);
+    public List listar (Login login);
     public void delete (Login login);
     //
     public Login findIdorLogin(Integer id);

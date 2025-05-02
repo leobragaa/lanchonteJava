@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.util.List;
 import model.Met_Pagamento;
 
 public interface Met_PagamentoDao {
@@ -8,6 +9,7 @@ public interface Met_PagamentoDao {
     public void criarConexao();
     public void salvar (Met_Pagamento metPagemento);
     public void editar (Met_Pagamento metPagemento);
+    public List listar (Met_Pagamento metPagemento);
     public void delete (Met_Pagamento metPagemento);
     //
     public Met_Pagamento findIdForMetPagamento (Integer id);

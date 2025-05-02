@@ -1,12 +1,14 @@
 
 package dao;
 
+import java.util.List;
 import model.Telefone;
 
 public interface TelefoneDao {
     //
     public void salvar(Telefone telefone);
     public void editar(Telefone telefone);
+    public List listar(Telefone telefone);
     public void delete(Telefone telefone);
     //
     public Telefone findTelefoneForId(Integer id);

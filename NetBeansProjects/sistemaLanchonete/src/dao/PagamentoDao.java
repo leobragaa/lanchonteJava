@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.util.List;
 import model.Pagamento;
 import model.Pedido;
 
@@ -8,6 +9,7 @@ public interface PagamentoDao {
     //
     public void salvar(Pagamento pagamento);
     public void editar(Pagamento pagamento);
+    public List listar(Pagamento pagamento);
     public void delete(Pagamento pagamento);
     //
     public Pagamento findIdForPagamento(Integer id);

@@ -1,12 +1,14 @@
 
 package dao;
 
+import java.util.List;
 import model.Ingrediente_Adicional;
 
 public interface Ingrediente_AdicionalDao {
     //
     public void salvar(Ingrediente_Adicional ingredienteAdd);
     public void editar(Ingrediente_Adicional ingredienteAdd);
+    public List listar(Ingrediente_Adicional ingredienteAdd);
     public void delete(Ingrediente_Adicional ingredienteAdd);
     //
     public Ingrediente_Adicional findIdForIngredienteAdd(Integer id);

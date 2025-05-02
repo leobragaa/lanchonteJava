@@ -2,12 +2,14 @@
 package dao;
 
 import java.sql.SQLException;
+import java.util.List;
 import model.Carrinho;
 
 public interface CarrinhoDao {
     //
     public void salvar(Carrinho carrinho) throws SQLException;
     public void editar(Carrinho carrinho);
+    public List listar(Carrinho carrinho);
     public void delete(Carrinho carrinho);
     //
     public Carrinho findIdForCarrinho(Integer id);
