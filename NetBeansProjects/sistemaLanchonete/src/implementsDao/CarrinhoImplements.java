@@ -4,8 +4,7 @@ package implementsDao;
 import dao.CarrinhoDao;
 import java.sql.SQLException;
 import model.Carrinho;
-import model.Ingrediente_Escolha;
-import model.Produto;
+
 
 public class CarrinhoImplements implements CarrinhoDao{
 
@@ -30,18 +29,18 @@ public class CarrinhoImplements implements CarrinhoDao{
     }
 
     @Override
-    public Carrinho findProdutoForCarrinho(Produto produto_id) {
+    public Carrinho findProdutoForCarrinho(String produto_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Carrinho findEscolhaForCarrinho(Ingrediente_Escolha ingredienteEscolha) {
+    public Carrinho findEscolhaForCarrinho(Integer carrinho_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Carrinho findQuantidadeForCarrinho(Integer quantidade) {
+    public Carrinho findQuantidadeForCarrinho(Integer qtnd_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

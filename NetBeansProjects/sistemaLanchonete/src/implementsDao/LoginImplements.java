@@ -2,23 +2,27 @@
 package implementsDao;
 
 import dao.LoginDao;
-import model.Funcionario;
 import model.Login;
 
 public class LoginImplements implements LoginDao{
 
     @Override
-    public void salvar(LoginDao login) {
+    public void criarConexao() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(LoginDao login) {
+    public void salvar(Login login) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(LoginDao login) {
+    public void editar(Login login) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void delete(Login login) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -28,13 +32,13 @@ public class LoginImplements implements LoginDao{
     }
 
     @Override
-    public Login findSenhaForLogin(String senha) {
+    public Login findSenhaForLogin(String senha_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Login findFuncionarioForLogin(Funcionario funcionario) {
+    public Login findFuncionarioForLogin(Integer funcionario_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

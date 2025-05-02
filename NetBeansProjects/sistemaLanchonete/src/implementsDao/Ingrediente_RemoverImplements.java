@@ -2,23 +2,22 @@
 package implementsDao;
 
 import dao.Ingrediente_RemoverDao;
-import model.Ingrediente_Escolha;
 import model.Ingrediente_Remover;
 
 public class Ingrediente_RemoverImplements implements Ingrediente_RemoverDao{
 
     @Override
-    public void salvar(Ingrediente_RemoverDao ingredienteRemove) {
+    public void salvar(Ingrediente_Remover ingredienteRemove) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(Ingrediente_RemoverDao ingredienteRemove) {
+    public void editar(Ingrediente_Remover ingredienteRemove) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Ingrediente_RemoverDao ingredienteRemove) {
+    public void delete(Ingrediente_Remover ingredienteRemove) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -28,13 +27,14 @@ public class Ingrediente_RemoverImplements implements Ingrediente_RemoverDao{
     }
 
     @Override
-    public Ingrediente_Remover findNomeForIngredienteRemove(String nome) {
+    public Ingrediente_Remover findNomeForIngredienteRemove(String nome_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Ingrediente_Remover findNomeForIngredienteRemove(Ingrediente_Escolha ingredienteEscolha) {
+    public Ingrediente_Remover findNomeForIngredienteEscolha(String ingredienteEscolha_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     
 }

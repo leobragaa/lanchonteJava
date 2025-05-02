@@ -2,50 +2,46 @@
 package implementsDao;
 
 import dao.TelefoneDao;
-import model.Cliente;
-import model.Funcionario;
 import model.Telefone;
 
 public class TelefoneImplements implements TelefoneDao{
 
     @Override
-    public void salvar(TelefoneDao telefone) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void salvar(Telefone telefone) {
     }
 
     @Override
-    public void editar(TelefoneDao telefone) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void editar(Telefone telefone) {
     }
 
     @Override
-    public void delete(TelefoneDao telefone) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(Telefone telefone) {
     }
 
     @Override
     public Telefone findTelefoneForId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
 
     @Override
-    public Telefone findTelefoneForDd(Integer dd) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Telefone findTelefoneForDd(Integer dd_id) {
+        return null;
     }
 
     @Override
-    public Telefone findTelefoneForNumero(Integer numero) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Telefone findTelefoneForNumero(Integer numero_id) {
+        return null;
     }
 
     @Override
-    public Telefone findTelefoneForFuncionario(Funcionario funcionario_id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Telefone findTelefoneForFuncionario(String funcionario_id) {
+        return null;
     }
 
     @Override
-    public Telefone findTelefoneForNumero(Cliente cliente_id) {
+    public Telefone findTelefoneForCliente(String cliente_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     
 }

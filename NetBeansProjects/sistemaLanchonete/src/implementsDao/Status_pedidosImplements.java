@@ -2,39 +2,36 @@
 package implementsDao;
 
 import dao.Status_pedidosDao;
-import model.Pedido;
 import model.Status_pedidos;
 
 public class Status_pedidosImplements implements Status_pedidosDao{
 
     @Override
-    public void salvar(Status_pedidosDao statusPedidos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void salvar(Status_pedidos statusPedidos) {
     }
 
     @Override
-    public void editar(Status_pedidosDao statusPedidos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void editar(Status_pedidos statusPedidos) {
     }
 
     @Override
-    public void delete(Status_pedidosDao statusPedidos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(Status_pedidos statusPedidos) {
     }
 
     @Override
     public Status_pedidos findtStatusPedidosForId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
 
     @Override
-    public Status_pedidos findtStatusPedidosForProgresso(String progresso) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Status_pedidos findtStatusPedidosForProgresso(String progresso_id) {
+        return null;
     }
 
     @Override
-    public Status_pedidos findtStatusPedidosForPedido(Pedido pedido) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Status_pedidos findtStatusPedidosForPedido(String pedido_id) {
+        return null;
     }
+
     
 }

@@ -7,17 +7,17 @@ import model.Cartao;
 public class CartaoImplements implements CartaoDao{
 
     @Override
-    public void salvar(CartaoDao cartao) {
+    public void salvar(Cartao cartao) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(CartaoDao cartao) {
+    public void editar(Cartao cartao) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(CartaoDao cartao) {
+    public void delete(Cartao cartao) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -27,18 +27,18 @@ public class CartaoImplements implements CartaoDao{
     }
 
     @Override
-    public Cartao findTipoPagamentoForCartao(boolean tipoPagamento) {
+    public Cartao findTipoPagamentoForCartao(boolean pagamento_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Cartao findNumCartaoForCartao(String numCartao) {
+    public Cartao findNumCartaoForCartao(String numCartao_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Cartao findCvvForCartao(Integer cvv) {
+    public Cartao findCvvForCartao(Integer cvv_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

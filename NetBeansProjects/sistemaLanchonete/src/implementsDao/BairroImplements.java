@@ -4,42 +4,46 @@ package implementsDao;
 import conection.Conexao;
 import dao.BairroDao;
 import java.sql.SQLException;
+import java.util.List;
 import model.Bairro;
 
 public class BairroImplements implements BairroDao{
 
     @Override
     public void salvar(Bairro bairroData) throws SQLException {
-        PreparedStatement prepareStatement = Conexao.getConnection()
-                .prepareStament(
-                "insert into bairro(id,nome)VALUES(?,?)");
-            prepareStatement.setId(getId());
-            prepareStatement.setBairro(getBairro());
+        //Criando conexao com banco de dados
+        Conexao criaConexao = new Conexao();
+        criarConexao.criarConexao();
+        
+        String sql;
+        int posicao = 1;
+        
+        if (bairroData()>0){
+            sql = "";
+        }
     }
 
     @Override
     public void editar(Bairro bairroData) {
-        
     }
 
     @Override
-    public void listar(Bairro bairroData) {
-        
+    public List listar(Bairro bairroData) {
+        return null;
     }
 
     @Override
     public void delete(Bairro bairroData) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public Bairro findIdForBairro(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
 
     @Override
-    public Bairro findNomeForBairro(String nome) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Bairro findNomeForBairro(String nome_id) {
+        return null;
     }
 
 }

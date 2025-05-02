@@ -7,17 +7,17 @@ import model.Dinheiro;
 public class DinheiroImplements implements DinheiroDao{
 
     @Override
-    public void salvar(DinheiroDao dinheiro) {
+    public void salvar(Dinheiro dinheiro) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(DinheiroDao dinheiro) {
+    public void delete(Dinheiro dinheiro) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(DinheiroDao dinheiro) {
+    public void editar(Dinheiro dinheiro) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -27,8 +27,8 @@ public class DinheiroImplements implements DinheiroDao{
     }
 
     @Override
-    public Dinheiro findValorEntregaForDinheiro(Double valorEntregado) {
+    public Dinheiro findValorEntregaForDinheiro(Double valorEntrega_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

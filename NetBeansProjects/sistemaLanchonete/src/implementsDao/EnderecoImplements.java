@@ -2,7 +2,6 @@
 package implementsDao;
 
 import dao.EnderecoDao;
-import model.Bairro;
 import model.Endereco;
 
 public class EnderecoImplements implements EnderecoDao{
@@ -28,23 +27,23 @@ public class EnderecoImplements implements EnderecoDao{
     }
 
     @Override
-    public Endereco findRuaForEndereco(String rua) {
+    public Endereco findRuaForEndereco(String rua_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findCepForEndereco(String cep) {
+    public Endereco findCepForEndereco(String cep_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findBairroForEndereco(Bairro bairro_id) {
+    public Endereco findBairroForEndereco(String bairro_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findForEndereco(Double distancia) {
+    public Endereco findDistanciaForEndereco(Integer distancia_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

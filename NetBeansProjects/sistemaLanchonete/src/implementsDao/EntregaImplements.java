@@ -31,28 +31,28 @@ public class EntregaImplements implements EntregaDao{
     }
 
     @Override
-    public Endereco findTipoEntregaForEntrega(boolean tipoEntrega) {
+    public Endereco findTipoEntregaForEntrega(boolean tipoEntrega_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findClienteForEntrega(Cliente cliente_id) {
+    public Endereco findClienteForEntrega(String cliente_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findDeliveryForEntrega(Delivery deleviry_id) {
+    public Endereco findDeliveryForEntrega(String delivery_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findPedidoForEntrega(Pedido pedido_id) {
+    public Endereco findPedidoForEntrega(String pedido_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findStatusPedidoForEntrega(Status_pedidos status_pedidos_id) {
+    public Endereco findStatusPedidoForEntrega(String statusPedidos_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

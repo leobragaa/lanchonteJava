@@ -2,39 +2,35 @@
 package implementsDao;
 
 import dao.Taxa_EntregaDao;
-import model.Endereco;
 import model.Taxa_Entrega;
 
 public class Taxa_EntregaImplements implements Taxa_EntregaDao{
 
     @Override
-    public void salvar(Taxa_EntregaDao taxaDaEntrega) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void salvar(Taxa_Entrega taxaDaEntrega) {
     }
 
     @Override
-    public void editar(Taxa_EntregaDao taxaDaEntrega) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void editar(Taxa_Entrega taxaDaEntrega) {
     }
 
     @Override
-    public void delete(Taxa_EntregaDao taxaDaEntrega) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void delete(Taxa_Entrega taxaDaEntrega) {
     }
 
     @Override
     public Taxa_Entrega findtTaxaEntregaForId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
 
     @Override
-    public Taxa_Entrega findtTaxaEntregaForTaxa(Double taxaEntrega) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Taxa_Entrega findtTaxaEntregaForTaxa(Integer taxaEntrega_id) {
+        return null;
     }
 
     @Override
-    public Taxa_Entrega findtTaxaEntregaForEndereco(Endereco endereco_id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Taxa_Entrega findtTaxaEntregaForEndereco(Integer endereco_id) {
+        return null;
     }
-    
+
 }

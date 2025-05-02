@@ -8,17 +8,17 @@ import model.Cupom;
 public class CupomImplements implements CupomDao{
 
     @Override
-    public void salvar(CupomDao cupom) {
+    public void salvar(Cupom cupom) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(CupomDao cupom) {
+    public void editar(Cupom cupom) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(CupomDao cupom) {
+    public void delete(Cupom cupom) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -28,18 +28,18 @@ public class CupomImplements implements CupomDao{
     }
 
     @Override
-    public Cupom findValorForCupom(Double valorCupom) {
+    public Cupom findValorForCupom(Integer valor_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Cupom findCodForCupom(Integer codigo) {
+    public Cupom findCodForCupom(Integer cod_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Cupom findValidadeForCupom(Date validade) {
+    public Cupom findValidadeForCupom(Date validade_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }
