@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class CartaoDao {
-    
+import model.Cartao;
+
+public interface CartaoDao {
+    //
+    public void salvar(CartaoDao cartao);
+    public void editar(CartaoDao cartao);
+    public void delete(CartaoDao cartao);
+    //
+    public Cartao findIdForCartao (Integer id);
+    public Cartao findTipoPagamentoForCartao (boolean tipoPagamento);
+    public Cartao findNumCartaoForCartao (String numCartao);
+    public Cartao findCvvForCartao (Integer cvv);
 }

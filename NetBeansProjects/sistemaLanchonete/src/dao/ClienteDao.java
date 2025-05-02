@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class ClienteDao {
-    
+import model.Cliente;
+import model.Telefone;
+
+public interface ClienteDao {
+    //
+    public void salvar(ClienteDao cliente);
+    public void editar(ClienteDao cliente);
+    public void delete(ClienteDao cliente);
+    //
+    public Cliente findIdForCliente (Integer id);
+    public Cliente findNomeForCliente (String nome);
+    public Cliente findTelefoneForCliente (Telefone telefone_id);
 }

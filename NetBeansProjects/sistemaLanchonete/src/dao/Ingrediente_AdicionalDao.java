@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class Ingrediente_AdicionalDao {
+import model.Ingrediente_Adicional;
+import model.Ingrediente_Escolha;
+
+public interface Ingrediente_AdicionalDao {
+    //
+    public void salvar(Ingrediente_AdicionalDao ingredienteAdd);
+    public void editar(Ingrediente_AdicionalDao ingredienteAdd);
+    public void delete(Ingrediente_AdicionalDao ingredienteAdd);
+    //
+    public Ingrediente_Adicional findIdForIngredienteAdd(Integer Id);
+    public Ingrediente_Adicional findNomeForIngredienteAdd(String nome);
+    public Ingrediente_Adicional findValorForIngredienteAdd(Double valor);
+    public Ingrediente_Adicional findIngEscolhaForIngredienteAdd(Ingrediente_Escolha ingredienteEscolha_id);
     
 }

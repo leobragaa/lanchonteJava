@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class DinheiroDao {
-    
+import model.Dinheiro;
+
+public interface DinheiroDao {
+    //
+    public void salvar(DinheiroDao dinheiro);
+    public void delete(DinheiroDao dinheiro);
+    public void editar(DinheiroDao dinheiro);
+    //
+    public Dinheiro findIdForDinheiro(Integer id);
+    public Dinheiro findValorEntregaForDinheiro(Double valorEntregado);
 }

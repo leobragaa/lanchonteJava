@@ -1,13 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class EntregaDao {
-    
+import model.Bairro;
+import model.Cliente;
+import model.Delivery;
+import model.Endereco;
+import model.Pedido;
+import model.Status_pedidos;
+
+public interface EntregaDao {
+    //
+    public void salvar (EntregaDao entrega);
+    public void editar (EntregaDao entrega);
+    public void delete (EntregaDao entrega);
+    //
+    public Endereco findIdForEntrega(Integer id);
+    public Endereco findTipoEntregaForEntrega(boolean tipoEntrega);
+    public Endereco findClienteForEntrega(Cliente cliente_id);
+    public Endereco findDeliveryForEntrega(Delivery deleviry_id);
+    public Endereco findPedidoForEntrega(Pedido pedido_id);
+    public Endereco findStatusPedidoForEntrega(Status_pedidos status_pedidos_id);
 }

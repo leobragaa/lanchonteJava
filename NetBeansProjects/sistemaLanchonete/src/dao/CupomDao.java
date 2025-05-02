@@ -1,13 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class CupomDao {
-    
+import java.util.Date;
+import model.Cupom;
+
+public interface CupomDao {
+    //
+    public void salvar(CupomDao cupom);
+    public void editar(CupomDao cupom);
+    public void delete(CupomDao cupom);
+    //
+    public Cupom findIdForCupom(Integer id);
+    public Cupom findValorForCupom(Double valorCupom);
+    public Cupom findCodForCupom(Integer codigo);
+    public Cupom findValidadeForCupom(Date validade);
 }

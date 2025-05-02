@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class DeliveryDao {
-    
+import model.Delivery;
+import model.Endereco;
+
+public interface DeliveryDao {
+    //
+    public void salvar(DeliveryDao delivery);
+    public void editar(DeliveryDao delivery);
+    public void delete(DeliveryDao delivery);
+    //
+    public Delivery findIdForDelivery(Integer id);
+    public Delivery findChaveEntregaForDelivery(Integer chaveEntrega);
+    public Delivery findNumeroForDelivery(Integer numero);
+    public Delivery findComplementoForDelivery(String complemento);
+    public Delivery findEnderecoForDelivery(Endereco endereco_id);
 }

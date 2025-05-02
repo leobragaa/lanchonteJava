@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class Met_PagamentoDao {
-    
+import model.Cartao;
+import model.Dinheiro;
+import model.Met_Pagamento;
+
+public interface Met_PagamentoDao {
+    //
+    public void salvar (Met_PagamentoDao metPagemento);
+    public void editar (Met_PagamentoDao metPagemento);
+    public void delete (Met_PagamentoDao metPagemento);
+    //
+    public Met_Pagamento findIdForMetPagamento (Integer id);
+    public Met_Pagamento findPixForMetPagamento (String pix);
+    public Met_Pagamento findDinheiroForMetPagamento (Dinheiro dinheiro_id);
+    public Met_Pagamento findCartaoForMetPagamento (Cartao cartao_id);
 }

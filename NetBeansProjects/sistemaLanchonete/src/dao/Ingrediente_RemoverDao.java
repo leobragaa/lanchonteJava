@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package dao;
 
-/**
- *
- * @author Leonardo Braga
- */
-public class Ingrediente_RemoverDao {
-    
+import model.Ingrediente_Escolha;
+import model.Ingrediente_Remover;
+
+public interface Ingrediente_RemoverDao {
+    //
+    public void salvar(Ingrediente_RemoverDao ingredienteRemove);
+    public void editar(Ingrediente_RemoverDao ingredienteRemove);
+    public void delete(Ingrediente_RemoverDao ingredienteRemove);
+    //
+    public Ingrediente_Remover findIdForIngredienteRemove(Integer id);
+    public Ingrediente_Remover findNomeForIngredienteRemove(String nome);
+    public Ingrediente_Remover findNomeForIngredienteRemove(Ingrediente_Escolha ingredienteEscolha);
 }
