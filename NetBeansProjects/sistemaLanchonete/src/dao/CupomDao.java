@@ -6,12 +6,12 @@ import model.Cupom;
 
 public interface CupomDao {
     //
-    public void salvar(CupomDao cupom);
-    public void editar(CupomDao cupom);
-    public void delete(CupomDao cupom);
+    public void salvar(Cupom cupom);
+    public void editar(Cupom cupom);
+    public void delete(Cupom cupom);
     //
     public Cupom findIdForCupom(Integer id);
-    public Cupom findValorForCupom(Double valorCupom);
-    public Cupom findCodForCupom(Integer codigo);
-    public Cupom findValidadeForCupom(Date validade);
+    public Cupom findValorForCupom(Integer valor_id);
+    public Cupom findCodForCupom(Integer cod_id);
+    public Cupom findValidadeForCupom(Date validade_id);
 }

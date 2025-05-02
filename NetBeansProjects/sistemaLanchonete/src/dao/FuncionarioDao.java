@@ -3,18 +3,17 @@ package dao;
 
 import model.Funcionario;
 import model.Login;
-import model.Telefone;
 
 public interface FuncionarioDao {
     //
-    public void salvar(FuncionarioDao funcionario);
-    public void editar(FuncionarioDao funcionario);
-    public void delete(FuncionarioDao funcionario);
+    public void salvar(Funcionario funcionario);
+    public void editar(Funcionario funcionario);
+    public void delete(Funcionario funcionario);
     //
     public Funcionario findIdForFuncionario(Integer id);
-    public Funcionario findNomeForFuncionario(String nome);
-    public Funcionario findCpfForFuncionario(String cpf);
-    public Funcionario findRgForFuncionario(String rg);
-    public Funcionario findTelefoneForFuncionario(Telefone telefone);
-    public Funcionario findLoginForFuncionario(Login logins);
+    public Funcionario findNomeForFuncionario(String nome_id);
+    public Funcionario findCpfForFuncionario(String cpf_id);
+    public Funcionario findRgForFuncionario(String rg_id);
+    public Funcionario findTelefoneForFuncionario(Integer telefone_id);
+    public Funcionario findLoginForFuncionario(Integer login_id);
 }
