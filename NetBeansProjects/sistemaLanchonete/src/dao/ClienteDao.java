@@ -2,15 +2,14 @@
 package dao;
 
 import model.Cliente;
-import model.Telefone;
 
 public interface ClienteDao {
     //
-    public void salvar(ClienteDao cliente);
-    public void editar(ClienteDao cliente);
-    public void delete(ClienteDao cliente);
+    public void salvar(Cliente cliente);
+    public void editar(Cliente cliente);
+    public void delete(Cliente cliente);
     //
     public Cliente findIdForCliente (Integer id);
-    public Cliente findNomeForCliente (String nome);
-    public Cliente findTelefoneForCliente (Telefone telefone_id);
+    public Cliente findNomeForCliente (String id);
+    public Cliente findTelefoneForCliente (Integer id);
 }

@@ -11,5 +11,5 @@ public interface BairroDao {
     public void delete(Bairro bairroData);
     //
     public Bairro findIdForBairro (Integer id);
-    public Bairro findNomeForBairro (String nome);
+    public Bairro findNomeForBairro (String nome_id);
 }
