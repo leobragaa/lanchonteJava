@@ -2,12 +2,14 @@
 package dao;
 
 import java.util.Date;
+import java.util.List;
 import model.Cupom;
 
 public interface CupomDao {
     //
     public void salvar(Cupom cupom);
     public void editar(Cupom cupom);
+    public List listar(Cupom cupom);
     public void delete(Cupom cupom);
     //
     public Cupom findIdForCupom(Integer id);

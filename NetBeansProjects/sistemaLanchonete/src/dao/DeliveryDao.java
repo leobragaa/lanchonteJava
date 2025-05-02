@@ -1,14 +1,15 @@
 
 package dao;
 
+import java.util.List;
 import model.Delivery;
 
 public interface DeliveryDao {
     //
-    public void criarConexao();
-    public void salvar(DeliveryDao delivery);
-    public void editar(DeliveryDao delivery);
-    public void delete(DeliveryDao delivery);
+    public void salvar(Delivery delivery);
+    public void editar(Delivery delivery);
+    public List listar(Delivery delivery);
+    public void delete(Delivery delivery);
     //
     public Delivery findIdForDelivery(Integer id);
     public Delivery findChaveEntregaForDelivery(Integer chaveEntrega_id);

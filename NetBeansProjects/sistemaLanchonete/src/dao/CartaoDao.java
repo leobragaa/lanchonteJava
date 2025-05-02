@@ -1,12 +1,14 @@
 
 package dao;
 
+import java.util.List;
 import model.Cartao;
 
 public interface CartaoDao {
     //
     public void salvar(Cartao cartao);
     public void editar(Cartao cartao);
+    public List listar(Cartao cartao);
     public void delete(Cartao cartao);
     //
     public Cartao findIdForCartao (Integer id);
