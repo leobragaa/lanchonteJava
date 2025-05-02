@@ -2,21 +2,21 @@
 package model;
 
 public class Login {
-    private int id;
+    private Integer id;
     private String senha;
     private Funcionario funcionario;
 
-    public Login(int id, String senha, Funcionario funcionario) {
+    public Login(Integer id, String senha, Funcionario funcionario) {
         this.id = id;
         this.senha = senha;
         this.funcionario = funcionario;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

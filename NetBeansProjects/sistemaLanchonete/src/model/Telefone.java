@@ -1,14 +1,14 @@
 package model;
 
 public class Telefone {
-    private int id;
-    private int dd;
-    private int numero;
+    private Integer id;
+    private Integer dd;
+    private Integer numero;
     private Funcionario funcionario;
     private Cliente cliente_id;
 
 
-    public Telefone(int id, int dd, int numero, Funcionario funcionario, Cliente cliente_id) {
+    public Telefone(Integer id, Integer dd, Integer numero, Funcionario funcionario, Cliente cliente_id) {
         this.id = id;
         this.dd = dd;
         this.numero = numero;
@@ -16,11 +16,11 @@ public class Telefone {
         this.cliente_id = cliente_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -32,19 +32,19 @@ public class Telefone {
         this.cliente_id = cliente_id;
     }
 
-    public int getDd() {
+    public Integer getDd() {
         return dd;
     }
 
-    public void setDd(int dd) {
+    public void setDd(Integer dd) {
         this.dd = dd;
     }
 
-    public int getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 

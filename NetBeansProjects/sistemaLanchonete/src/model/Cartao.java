@@ -2,23 +2,23 @@
 package model;
 
 public class Cartao {
-    private int id;
+    private Integer id;
     private boolean tipoPagamento;
     private String numCartao;
     private Integer cvv;
 
-    public Cartao(int id, boolean tipoPagamento, String numCartao, Integer cvv) {
+    public Cartao(Integer id, boolean tipoPagamento, String numCartao, Integer cvv) {
         this.id = id;
         this.tipoPagamento = tipoPagamento;
         this.numCartao = numCartao;
         this.cvv = cvv;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

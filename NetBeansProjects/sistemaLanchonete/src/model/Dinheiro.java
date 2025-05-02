@@ -2,15 +2,15 @@
 package model;
 
 public class Dinheiro {
-    private int id;
+    private Integer id;
     private Double valorEntregado;
 
-    public Dinheiro(int id, Double valorEntregado) {
+    public Dinheiro(Integer id, Double valorEntregado) {
         this.id = id;
         this.valorEntregado = valorEntregado;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

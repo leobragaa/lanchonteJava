@@ -4,21 +4,21 @@ package model;
 import java.util.List;
 
 public class Produto {
-    private int id;
+    private Integer id;
     private String nome;
     private List<Carrinho>carrinho;
 
-    public Produto(int id, String nome, List<Carrinho> carrinho) {
+    public Produto(Integer id, String nome, List<Carrinho> carrinho) {
         this.id = id;
         this.nome = nome;
         this.carrinho = carrinho;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

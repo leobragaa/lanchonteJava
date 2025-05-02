@@ -1,28 +1,28 @@
 package model;
 
 public class Bairro {
-    private int id;
-    private String bairro;
+    private Integer id;
+    private String nome;
 
-    public Bairro(int id, String bairro) {
+    public Bairro(Integer id, String nome) {
         this.id = id;
-        this.bairro = bairro;
+        this.nome = nome;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getnome() {
+        return nome;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setnome(String nome) {
+        this.nome = nome;
     }
     
 }

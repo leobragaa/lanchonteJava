@@ -2,23 +2,23 @@
 package model;
 
 public class Pagamento {
-    private int id;
+    private Integer id;
     private Met_Pagamento metPagamento_id;
     private Cupom cupom_id;
     private Pedido pedido_id;
 
-    public Pagamento(int id, Met_Pagamento metPagamento_id, Cupom cupom_id, Pedido pedido_id) {
+    public Pagamento(Integer id, Met_Pagamento metPagamento_id, Cupom cupom_id, Pedido pedido_id) {
         this.id = id;
         this.metPagamento_id = metPagamento_id;
         this.cupom_id = cupom_id;
         this.pedido_id = pedido_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

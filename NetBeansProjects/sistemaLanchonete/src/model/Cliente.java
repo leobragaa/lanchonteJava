@@ -4,7 +4,7 @@ package model;
 import java.util.List;
 
 public class Cliente {
-    private int id;
+    private Integer id;
     private String nome;
     private List <Telefone> telefone_id;
 
@@ -13,11 +13,11 @@ public class Cliente {
         this.telefone_id = telefone_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

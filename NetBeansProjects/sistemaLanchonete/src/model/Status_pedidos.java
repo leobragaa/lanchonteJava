@@ -2,11 +2,11 @@
 package model;
 
 public class Status_pedidos {
+    private Integer id;
     private String progresso;
     private Pedido pedido;
-    private int id;
 
-    public Status_pedidos(String progresso, Pedido pedido, int id) {
+    public Status_pedidos(String progresso, Pedido pedido, Integer id) {
         this.progresso = progresso;
         this.pedido = pedido;
         this.id = id;
@@ -16,7 +16,7 @@ public class Status_pedidos {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -2,13 +2,13 @@
 package model;
 
 public class Delivery {
-    private int id;
+    private Integer id;
     private Integer chaveEntrega;
     private Integer numero;
     private String complemento;
     private Endereco endereco_id;
 
-    public Delivery(int id, Integer chaveEntrega, Integer numero, String complemento, Endereco endereco_id) {
+    public Delivery(Integer id, Integer chaveEntrega, Integer numero, String complemento, Endereco endereco_id) {
         this.id = id;
         this.chaveEntrega = chaveEntrega;
         this.numero = numero;
@@ -16,11 +16,11 @@ public class Delivery {
         this.endereco_id = endereco_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

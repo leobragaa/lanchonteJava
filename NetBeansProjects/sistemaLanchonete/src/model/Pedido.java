@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Pedido {
-    private int id;
+    private Integer id;
     private String hora_pedido;
     private Cliente cliente_id;
     private Integer numero_pedido;
@@ -15,7 +15,7 @@ public class Pedido {
     private Reembolso reembolso_id;
     private List<Carrinho>carrinho_id;
     
-    public Pedido(int id, String hora_pedido, Cliente cliente_id, Integer numero_pedido,List carrinho_id, Date data_pedido, Status_pedidos status_id, Entrega entrega_id, Reembolso reembolso_id) {
+    public Pedido(Integer id, String hora_pedido, Cliente cliente_id, Integer numero_pedido,List carrinho_id, Date data_pedido, Status_pedidos status_id, Entrega entrega_id, Reembolso reembolso_id) {
         this.id = id;
         this.hora_pedido = hora_pedido;
         this.cliente_id = cliente_id;
@@ -27,11 +27,11 @@ public class Pedido {
         this.reembolso_id = reembolso_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
