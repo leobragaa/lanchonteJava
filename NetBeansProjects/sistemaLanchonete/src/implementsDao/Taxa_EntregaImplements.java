@@ -2,6 +2,7 @@
 package implementsDao;
 
 import dao.Taxa_EntregaDao;
+import java.util.List;
 import model.Taxa_Entrega;
 
 public class Taxa_EntregaImplements implements Taxa_EntregaDao{
@@ -31,6 +32,11 @@ public class Taxa_EntregaImplements implements Taxa_EntregaDao{
     @Override
     public Taxa_Entrega findtTaxaEntregaForEndereco(Integer endereco_id) {
         return null;
+    }
+
+    @Override
+    public List listar(Taxa_Entrega taxaDaEntrega) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

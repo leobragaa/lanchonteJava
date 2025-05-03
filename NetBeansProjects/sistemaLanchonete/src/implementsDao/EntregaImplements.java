@@ -2,11 +2,9 @@
 package implementsDao;
 
 import dao.EntregaDao;
-import model.Cliente;
-import model.Delivery;
-import model.Endereco;
-import model.Pedido;
-import model.Status_pedidos;
+import java.util.List;
+import model.Entrega;
+
 
 public class EntregaImplements implements EntregaDao{
 
@@ -52,6 +50,11 @@ public class EntregaImplements implements EntregaDao{
 
     @Override
     public Endereco findStatusPedidoForEntrega(String statusPedidos_id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List listar(EntregaDao entrega) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

@@ -2,6 +2,7 @@
 package implementsDao;
 
 import dao.ReembolsoDao;
+import java.util.List;
 import model.Reembolso;
 
 public class ReembolsoImplements implements ReembolsoDao{
@@ -36,6 +37,11 @@ public class ReembolsoImplements implements ReembolsoDao{
     //
     @Override
     public void criarConexao() {
+    }
+
+    @Override
+    public List listar(Reembolso rembolso) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
