@@ -2,6 +2,7 @@
 package implementsDao;
 
 import dao.EntregaDao;
+import java.sql.SQLException;
 import java.util.List;
 import model.Entrega;
 
@@ -9,52 +10,52 @@ import model.Entrega;
 public class EntregaImplements implements EntregaDao{
 
     @Override
-    public void salvar(EntregaDao entrega) {
+    public void salvar(Entrega entrega) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(EntregaDao entrega) {
+    public void editar(Entrega entrega) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(EntregaDao entrega) {
+    public List listar() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findIdForEntrega(Integer id) {
+    public void delete(Entrega entrega) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findTipoEntregaForEntrega(boolean tipoEntrega_id) {
+    public Entrega findIdForEntrega(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findClienteForEntrega(String cliente_id) {
+    public Entrega findTipoEntregaForEntrega(boolean tipoEntrega_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findDeliveryForEntrega(String delivery_id) {
+    public Entrega findClienteForEntrega(String cliente_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findPedidoForEntrega(String pedido_id) {
+    public Entrega findDeliveryForEntrega(String delivery_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Endereco findStatusPedidoForEntrega(String statusPedidos_id) {
+    public Entrega findPedidoForEntrega(String pedido_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List listar(EntregaDao entrega) {
+    public Entrega findStatusPedidoForEntrega(String statusPedidos_id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

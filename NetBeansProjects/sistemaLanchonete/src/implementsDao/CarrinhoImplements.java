@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Carrinho;
@@ -20,7 +21,7 @@ public class CarrinhoImplements implements CarrinhoDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " INSERT INTO carrinho (id, produto, ingredienteEscolha, quantidade) VALUES (?, ?, ?, ?, ?)");
+                    " INSERT INTO carrinho (id, produto, ingredienteEscolha, quantidade) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1,carrinho.getId());
             prepareStatement.setString(2, carrinho.getProduto_id());
             prepareStatement.setInt(3, carrinho.getIngredienteEscolha());
@@ -52,7 +53,7 @@ public class CarrinhoImplements implements CarrinhoDao{
         try {
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    "UPDATE carrinho SET (id, produto, ingredienteEscolha, quantidade) VALUES (?, ?, ?, ?, ?)");
+                    "DELETE FROM carrinho (id, produto, ingredienteEscolha, quantidade) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1,carrinho.getId());
             prepareStatement.setString(2,carrinho.getProduto_id());
             prepareStatement.setInt(3,carrinho.getIngredienteEscolha());
@@ -157,13 +158,13 @@ public class CarrinhoImplements implements CarrinhoDao{
             }
             
         }catch(SQLException ex){
-            Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar por Quantidade", ex);
+            Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar por Quantidade", ex);
         }
         return null;
     }
 
     @Override
-    public List listar(Carrinho carrinho) throws SQLException{
+    public List listar() throws SQLException{
         List<Carrinho> carrinhoList = new LinkedList<>();
         PreparedStatement prepareStatement;
         

@@ -14,6 +14,9 @@ public class Carrinho {
         this.quantidade = quantidade;
     }
 
+    public Carrinho() {
+    }
+
     public Integer getId() {
         return id;
     }

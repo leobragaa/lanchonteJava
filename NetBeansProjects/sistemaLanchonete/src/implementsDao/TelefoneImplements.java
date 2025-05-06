@@ -5,6 +5,8 @@ import conection.Conexao;
 import dao.TelefoneDao;
 import model.Telefone;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -63,7 +65,7 @@ public class TelefoneImplements implements TelefoneDao{
         }
     }
     @Override
-    public List listar (Telefone telefone) throws SQLException{
+    public List listar () throws SQLException{
         List<Telefone> telefoneList = new LinkedList<>();
         PreparedStatement prepareStatement;
         
@@ -76,11 +78,11 @@ public class TelefoneImplements implements TelefoneDao{
             while(resultSet.next()){
                 Telefone telefone = new Telefone();
                 
-                telefone.setId(resultSet.setInt("id"));
-                telefone.setDd(resultSet.setInt("dd"));
-                telefone.setNumero(resultSet.setInt("numero"));
-                telefone.setFuncionario(resultSet.setString("funcionario"));
-                telefone.setCliente_id(resultSet.setString("cliente"));
+                telefone.setId(resultSet.getInt("id"));
+                telefone.setDd(resultSet.getInt("dd"));
+                telefone.setNumero(resultSet.getInt("numero"));
+                telefone.setFuncionario(resultSet.getString("funcionario"));
+                telefone.setCliente_id(resultSet.getString("cliente"));
                 
                 telefoneList.add(telefone);
             }            
@@ -184,27 +186,6 @@ public class TelefoneImplements implements TelefoneDao{
 
     @Override
     public Telefone findTelefoneForCliente(String cliente_id) {
-                try {
-        PreparedStatement prepareStatement = Conexao.getConnection()
-            .prepareStatement("SELECT * FROM telefone WHERE cliente = ?");
-        prepareStatement.setString(5, cliente_id);
-        ResultSet resultSet = prepareStatement.getResultSet();
-
-        if (resultSet.next()) {
-            Telefone telefone = new Telefone();
-            
-            telefone.setId(resultSet.getInt("id"));
-            telefone.setDd(resultSet.getInt("dd"));
-            telefone.setNumero(resultSet.getInt("numero"));
-            telefone.setFuncionario(resultSet.getString("funcionario"));
-            telefone.setCliente_id(resultSet.getString("cliente"));
-            
-            return telefone;
-        }
-    } catch (SQLException ex) {
-        Logger.getLogger(TelefoneImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar telefone por Cliente", ex);
-    }
-        return null;
     }
 
     

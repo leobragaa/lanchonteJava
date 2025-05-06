@@ -3,9 +3,11 @@ package implementsDao;
 
 import conection.Conexao;
 import dao.ClienteDao;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cliente;
@@ -21,7 +23,7 @@ public class ClienteImplements implements ClienteDao{
                     " INSERT INTO cliente(id, dd, numero, funcionario, cliente) VALUES (?, ?, ?, ?, ?)");
             prepareStatement.setInt(1, cliente.getId());
             prepareStatement.setString(2, cliente.getNome());
-            prepareStatement.setInt(3, cliente.getTelefone_id());
+            prepareStatement.setString(3, cliente.getTelefone_id());
 
         }catch(SQLException ex){
             Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
@@ -37,7 +39,7 @@ public class ClienteImplements implements ClienteDao{
                     " UPDATE cliente SET nome = ?, telefone = ? WHERE id = ?");
             prepareStatement.setInt(1, cliente.getId());
             prepareStatement.setString(2, cliente.getNome());
-            prepareStatement.setInt(3, cliente.getTelefone_id());
+            prepareStatement.setString(3, cliente.getTelefone_id());
 
         }catch(SQLException ex){
             Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar", ex);            
@@ -72,7 +74,7 @@ public class ClienteImplements implements ClienteDao{
             Cliente cliente = new Cliente();
             cliente.setId(resultSet.getInt("id"));
             cliente.setNome(resultSet.getString("nome"));
-            cliente.getTelefone_id(resultSet.getInt("telefone"));
+            cliente.setTelefone_id(resultSet.getInt("telefone"));
             return cliente;
         }
         } catch (SQLException ex) {
@@ -82,11 +84,11 @@ public class ClienteImplements implements ClienteDao{
     }
 
     @Override
-    public Cliente findNomeForCliente(String id) {
+    public Cliente findNomeForCliente(String nome_id) {
         try {
         PreparedStatement prepareStatement = Conexao.getConnection()
             .prepareStatement("SELECT * FROM cliente WHERE nome = ?");
-        prepareStatement.setInt(2, id);
+        prepareStatement.setString(2, nome_id);
         ResultSet resultSet = prepareStatement.getResultSet();
 
         if (resultSet.next()) {
@@ -103,18 +105,18 @@ public class ClienteImplements implements ClienteDao{
     }
 
     @Override
-    public Cliente findTelefoneForCliente(Integer id) {
+    public Cliente findTelefoneForCliente(String telefone_id) {
         try {
         PreparedStatement prepareStatement = Conexao.getConnection()
             .prepareStatement("SELECT * FROM cliente WHERE telefone = ?");
-        prepareStatement.setInt(3, id);
+        prepareStatement.setString(3, telefone_id);
         ResultSet resultSet = prepareStatement.getResultSet();
 
         if (resultSet.next()) {
             Cliente cliente = new Cliente();
             cliente.setId(resultSet.getInt("id"));
             cliente.setNome(resultSet.getString("nome"));
-            cliente.getTelefone_id(resultSet.getInt("telefone"));
+            cliente.getTelefone_id(resultSet.getString("telefone"));
             return cliente;
         }
         } catch (SQLException ex) {
@@ -124,7 +126,7 @@ public class ClienteImplements implements ClienteDao{
     }
 
     @Override
-    public List listar(Cliente cliente) throws SQLException{
+    public List listar() throws SQLException{
         List<Cliente> clienteList = new LinkedList<>();
         PreparedStatement prepareStatement;
         
@@ -137,9 +139,9 @@ public class ClienteImplements implements ClienteDao{
             while(resultSet.next()){
                 Cliente cliente = new Cliente();
                 
-                cliente.setId(resultSet.setId("id"));
-                cliente.setNome(resultSet.setDd("nome"));
-                cliente.setTelefone_id(resultSet.setNumero("telefone"));
+                cliente.setId(resultSet.getInt("id"));
+                cliente.setNome(resultSet.getString("nome"));
+                cliente.setTelefone_id(resultSet.getString("telefone"));
                 
                 clienteList.add(cliente);
             }            

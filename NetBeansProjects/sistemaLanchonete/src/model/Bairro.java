@@ -9,6 +9,9 @@ public class Bairro {
         this.nome = nome;
     }
 
+    public Bairro() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -17,11 +20,11 @@ public class Bairro {
         this.id = id;
     }
 
-    public String getnome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setnome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
     

@@ -1,15 +1,16 @@
 
 package dao;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import model.Cupom;
 
 public interface CupomDao {
     //
-    public void salvar(Cupom cupom);
+    public void salvar(Cupom cupom)throws SQLException;
     public void editar(Cupom cupom);
-    public List listar(Cupom cupom);
+    public List listar() throws SQLException;
     public void delete(Cupom cupom);
     //
     public Cupom findIdForCupom(Integer id);

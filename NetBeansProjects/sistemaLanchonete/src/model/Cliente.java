@@ -13,6 +13,9 @@ public class Cliente {
         this.telefone_id = telefone_id;
     }
 
+    public Cliente() {
+    }
+
     public Integer getId() {
         return id;
     }

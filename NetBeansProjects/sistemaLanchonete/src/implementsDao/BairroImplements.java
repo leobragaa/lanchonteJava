@@ -5,6 +5,7 @@ import conection.Conexao;
 import dao.BairroDao;
 import java.sql.SQLException;
 import java.util.List;
+import java.sql.ResultSet;
 import model.Bairro;
 import java.sql.PreparedStatement;
 import java.util.LinkedList;
@@ -21,7 +22,7 @@ public class BairroImplements implements BairroDao{
                 .prepareStatement(
                 "INSERT INTO bairro(id, nome)VALUES(?,?");
             prepareStatement.setInt(1,bairroData.getId());
-            prepareStatement.setString(2,bairroData.getnome());
+            prepareStatement.setString(2,bairroData.getNome());
         }catch (SQLException ex){
             Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);
         }    
@@ -35,27 +36,27 @@ public class BairroImplements implements BairroDao{
                     .prepareStatement(
                     "UPDATE bairro SET nome = ? WHERE id = ?");
             prepareStatement.setInt(1,bairroData.getId());
-            prepareStatement.setString(2,bairroData.getnome());
+            prepareStatement.setString(2,bairroData.getNome());
         } catch (SQLException ex) {
             Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao editar o valor", ex);
         }
     }
 
     @Override
-    public List listar(Bairro bairroData) throws SQLException{
+    public List listar() throws SQLException{
         List<Bairro> bairrosList = new LinkedList<>();
-        PreparedStatement preparedStatement; 
+        PreparedStatement prepareStatement; 
         try{
-            preparedStatement = Conexao.getConnection()
+            prepareStatement = Conexao.getConnection()
                     .prepareStatement(
                     "SELECT * FROM bairro");
-            ResultSet resultSet = preparedStatement.getResultSet();
+            ResultSet resultSet = prepareStatement.getResultSet();
             
             while(resultSet.next()){
                 Bairro bairro = new Bairro();
                 
-                bairro(resultSet.setId("id"));
-                bairro(resultSet.setnome("nome"));
+                bairro.setId(resultSet.getInt("id"));
+                bairro.setNome(resultSet.getString("nome"));
                 
                 bairrosList.add(bairro);
             }
@@ -74,7 +75,7 @@ public class BairroImplements implements BairroDao{
                     .prepareStatement(
                             "DELETE FROM bairro(id, nome)VALUES(?,?");
             prepareStatement.setInt(1,bairroData.getId());
-            prepareStatement.setString(2,bairroData.getnome());
+            prepareStatement.setString(2,bairroData.getNome());
         } catch (SQLException ex) {
             Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -92,7 +93,7 @@ public class BairroImplements implements BairroDao{
             if(resultSet.next()){
                 Bairro bairro = new Bairro();
                 bairro.setId(resultSet.getInt("id"));
-                bairro.setnome(resultSet.getString("nome"));
+                bairro.setNome(resultSet.getString("nome"));
                 return bairro;
             }
         }catch(SQLException ex){
@@ -113,9 +114,9 @@ public class BairroImplements implements BairroDao{
             ResultSet resultSet = prepareStatement.getResultSet();
             
             if(resultSet.next()){
-                Bairro bairro = new Bairro;
+                Bairro bairro = new Bairro();
                 bairro.setId(resultSet.getInt("id"));
-                bairro.setnome(resultSet.getString("nome"));
+                bairro.setNome(resultSet.getString("nome"));
                 return bairro;
             }
             

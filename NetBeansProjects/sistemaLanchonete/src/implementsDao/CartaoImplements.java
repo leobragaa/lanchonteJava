@@ -3,9 +3,11 @@ package implementsDao;
 
 import conection.Conexao;
 import dao.CartaoDao;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cartao;
@@ -13,16 +15,16 @@ import model.Cartao;
 public class CartaoImplements implements CartaoDao{
 
     @Override
-    public void salvar(Cartao cartao) {
+    public void salvar(Cartao cartao) throws SQLException{
         PreparedStatement prepareStatement;
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
                     " INSERT INTO cartao(id, tipoPagamento, numCartao, cvv) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1, cartao.getId());
-            prepareStatement.setInt(2, cartao.getTipoPagamento());
-            prepareStatement.setInt(3, cartao.getNumCartao());
-            prepareStatement.setString(4, cartao.getCvv());
+            prepareStatement.setBoolean(2, cartao.isTipoPagamento());
+            prepareStatement.setString(3, cartao.getNumCartao());
+            prepareStatement.setInt(4, cartao.getCvv());
         }catch(SQLException ex){
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }        
@@ -36,9 +38,9 @@ public class CartaoImplements implements CartaoDao{
                     .prepareStatement(
                     " UPDATE cartao SET id = ?, tipoPagamento = ?, numCartao = ?, cvv = ? WHERE id = ?");
             prepareStatement.setInt(1, cartao.getId());
-            prepareStatement.setInt(2, cartao.getTipoPagamento());
-            prepareStatement.setInt(3, cartao.getNumCartao());
-            prepareStatement.setString(4, cartao.getCvv());
+            prepareStatement.setBoolean(2, cartao.isTipoPagamento());
+            prepareStatement.setString(3, cartao.getNumCartao());
+            prepareStatement.setInt(4, cartao.getCvv());
         }catch(SQLException ex){
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }     
@@ -52,9 +54,9 @@ public class CartaoImplements implements CartaoDao{
                     .prepareStatement(
                     " DELETE FROM cartao(id, tipoPagamento, numCartao, cvv) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1, cartao.getId());
-            prepareStatement.setInt(2, cartao.getTipoPagamento());
-            prepareStatement.setInt(3, cartao.getNumCartao());
-            prepareStatement.setString(4, cartao.getCvv());
+            prepareStatement.setBoolean(2, cartao.isTipoPagamento());
+            prepareStatement.setString(3, cartao.getNumCartao());
+            prepareStatement.setInt(4, cartao.getCvv());
         }catch(SQLException ex){
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }     
@@ -70,10 +72,10 @@ public class CartaoImplements implements CartaoDao{
 
             if (resultSet.next()) {
                 Cartao cartao = new Cartao();
-                cartao.setId(resultSet.setInt("id"));
-                cartao.setTipoPagamento(resultSet.setInt("tipoPagamento"));
-                cartao.setNumCartao(resultSet.setInt("numCartao"));
-                cartao.setCvv(resultSet.setString("cvv"));
+                cartao.setId(resultSet.getInt("id"));
+                cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
+                cartao.setNumCartao(resultSet.getString("numCartao"));
+                cartao.setCvv(resultSet.getInt("cvv"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -83,19 +85,19 @@ public class CartaoImplements implements CartaoDao{
     }
 
     @Override
-    public Cartao findTipoPagamentoForCartao(boolean pagamento_id) {
+    public Cartao findTipoPagamentoForCartao(String pagamento_id) {
         try {
             PreparedStatement prepareStatement = Conexao.getConnection()
                 .prepareStatement("SELECT * FROM cartao WHERE tipoPagamento = ?");
-            prepareStatement.setInt(2, pagamento_id);
+            prepareStatement.setString(2, pagamento_id);
             ResultSet resultSet = prepareStatement.getResultSet();
 
             if (resultSet.next()) {
                 Cartao cartao = new Cartao();
-                cartao.setId(resultSet.setInt("id"));
-                cartao.setTipoPagamento(resultSet.setInt("tipoPagamento"));
-                cartao.setNumCartao(resultSet.setInt("numCartao"));
-                cartao.setCvv(resultSet.setString("cvv"));
+                cartao.setId(resultSet.getInt("id"));
+                cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
+                cartao.setNumCartao(resultSet.getString("numCartao"));
+                cartao.setCvv(resultSet.getInt("cvv"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -109,15 +111,15 @@ public class CartaoImplements implements CartaoDao{
         try {
             PreparedStatement prepareStatement = Conexao.getConnection()
                 .prepareStatement("SELECT * FROM cartao WHERE numCartao = ?");
-            prepareStatement.setInt(3, numCartao_id);
+            prepareStatement.setString(3, numCartao_id);
             ResultSet resultSet = prepareStatement.getResultSet();
 
             if (resultSet.next()) {
                 Cartao cartao = new Cartao();
-                cartao.setId(resultSet.setInt("id"));
-                cartao.setTipoPagamento(resultSet.setInt("tipoPagamento"));
-                cartao.setNumCartao(resultSet.setInt("numCartao"));
-                cartao.setCvv(resultSet.setString("cvv"));
+                cartao.setId(resultSet.getInt("id"));
+                cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
+                cartao.setNumCartao(resultSet.getString("numCartao"));
+                cartao.setCvv(resultSet.getInt("cvv"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -136,10 +138,10 @@ public class CartaoImplements implements CartaoDao{
 
             if (resultSet.next()) {
                 Cartao cartao = new Cartao();
-                cartao.setId(resultSet.setInt("id"));
-                cartao.setTipoPagamento(resultSet.setInt("tipoPagamento"));
-                cartao.setNumCartao(resultSet.setInt("numCartao"));
-                cartao.setCvv(resultSet.setString("cvv"));
+                cartao.setId(resultSet.getInt("id"));
+                cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
+                cartao.setNumCartao(resultSet.getString("numCartao"));
+                cartao.setCvv(resultSet.getInt("cvv"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -149,7 +151,7 @@ public class CartaoImplements implements CartaoDao{
     }
 
     @Override
-    public List listar(Cartao cartao) throws SQLException{
+    public List listar() throws SQLException {
         List<Cartao> cartaoList = new LinkedList<>();
         PreparedStatement prepareStatement;
         
@@ -162,10 +164,10 @@ public class CartaoImplements implements CartaoDao{
             while(resultSet.next()){
                 Cartao cartao = new Cartao();
                 
-                cartao.setId(resultSet.setInt("id"));
-                cartao.setTipoPagamento(resultSet.setInt("tipoPagamento"));
-                cartao.setNumCartao(resultSet.setInt("numCartao"));
-                cartao.setCvv(resultSet.setString("cvv"));
+                cartao.setId(resultSet.getInt("id"));
+                cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
+                cartao.setNumCartao(resultSet.getString("numCartao"));
+                cartao.setCvv(resultSet.getInt("cvv"));
                 
                 cartaoList.add(cartao);
             }            
@@ -174,5 +176,4 @@ public class CartaoImplements implements CartaoDao{
         }
         return cartaoList;
     }
-
 }
