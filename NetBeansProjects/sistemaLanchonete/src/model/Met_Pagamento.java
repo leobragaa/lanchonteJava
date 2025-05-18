@@ -1,17 +1,22 @@
 
 package model;
 
+import java.util.List;
+
 public class Met_Pagamento {
     private Integer id;
     private String pix;
-    private Dinheiro dinheiro_id;
-    private Cartao cartao_id;
+    private List<Dinheiro> dinheiro_id;
+    private List<Cartao> cartao_id;
 
-    public Met_Pagamento(Integer id, String pix, Dinheiro dinheiro_id, Cartao cartao_id) {
+    public Met_Pagamento(Integer id, String pix, List<Dinheiro> dinheiro_id, List<Cartao> cartao_id) {
         this.id = id;
         this.pix = pix;
         this.dinheiro_id = dinheiro_id;
         this.cartao_id = cartao_id;
+    }
+
+    public Met_Pagamento() {
     }
 
     public Integer getId() {
@@ -30,21 +35,20 @@ public class Met_Pagamento {
         this.pix = pix;
     }
 
-    public Dinheiro getDinheiro_id() {
+    public List<Dinheiro> getDinheiro_id() {
         return dinheiro_id;
     }
 
-    public void setDinheiro_id(Dinheiro dinheiro_id) {
+    public void setDinheiro_id(List<Dinheiro> dinheiro_id) {
         this.dinheiro_id = dinheiro_id;
     }
 
-    public Cartao getCartao_id() {
+    public List<Cartao> getCartao_id() {
         return cartao_id;
     }
 
-    public void setCartao_id(Cartao cartao_id) {
+    public void setCartao_id(List<Cartao> cartao_id) {
         this.cartao_id = cartao_id;
     }
-    
-    
+
 }

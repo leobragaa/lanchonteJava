@@ -11,7 +11,8 @@ public class Login {
         this.senha = senha;
         this.funcionario = funcionario;
     }
-
+    public Login(){
+    }
     public Integer getId() {
         return id;
     }

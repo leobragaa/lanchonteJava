@@ -7,17 +7,18 @@ public class Delivery {
     private Integer numero;
     private String complemento;
     private Endereco endereco_id;
+    private Entrega entrega_id;
 
-    public Delivery(Integer id, Integer chaveEntrega, Integer numero, String complemento, Endereco endereco_id) {
+    public Delivery(Integer id, Integer chaveEntrega, Integer numero, String complemento, Endereco endereco_id, Entrega entrega_id) {
         this.id = id;
         this.chaveEntrega = chaveEntrega;
         this.numero = numero;
         this.complemento = complemento;
         this.endereco_id = endereco_id;
+        this.entrega_id = entrega_id;
     }
 
     public Delivery() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public Integer getId() {
@@ -58,6 +59,14 @@ public class Delivery {
 
     public void setEndereco_id(Endereco endereco_id) {
         this.endereco_id = endereco_id;
+    }
+
+    public Entrega getEntrega_id() {
+        return entrega_id;
+    }
+
+    public void setEntrega_id(Entrega entrega_id) {
+        this.entrega_id = entrega_id;
     }
     
     

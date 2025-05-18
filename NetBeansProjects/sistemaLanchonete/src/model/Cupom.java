@@ -8,19 +8,20 @@ public class Cupom {
     private Double valorCupom;
     private Integer codigo;
     private Date validade;
+    private Pagamento pagamento;
 
-    public Cupom(Integer id, Double valorCupom, Integer codigo, Date validade) {
+    public Cupom(Integer id, Double valorCupom, Integer codigo, Date validade, Pagamento pagamento) {
         this.id = id;
         this.valorCupom = valorCupom;
         this.codigo = codigo;
         this.validade = validade;
+        this.pagamento = pagamento;
     }
 
     public Cupom() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -52,9 +53,12 @@ public class Cupom {
         this.validade = validade;
     }
 
-    public void setQuantidade(java.sql.Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Pagamento getPagamento() {
+        return pagamento;
     }
-    
-    
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
+
 }

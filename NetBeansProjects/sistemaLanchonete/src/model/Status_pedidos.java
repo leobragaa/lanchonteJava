@@ -11,7 +11,9 @@ public class Status_pedidos {
         this.pedido = pedido;
         this.id = id;
     }
+    public Status_pedidos(){
 
+    }
     public int getId() {
         return id;
     }

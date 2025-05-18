@@ -6,12 +6,18 @@ import java.util.List;
 public class Produto {
     private Integer id;
     private String nome;
+    private Double valorUnitario;
     private List<Carrinho>carrinho;
 
-    public Produto(Integer id, String nome, List<Carrinho> carrinho) {
+    public Produto(Integer id, String nome, Double valorUnitario, List<Carrinho> carrinho) {
         this.id = id;
         this.nome = nome;
+        this.valorUnitario = valorUnitario;
         this.carrinho = carrinho;
+    }
+
+    public Produto(){
+        
     }
 
     public Integer getId() {
@@ -28,6 +34,14 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Double getValorUnitario() {
+        return valorUnitario;
+    }
+
+    public void setValorUnitario(Double valorUnitario) {
+        this.valorUnitario = valorUnitario;
     }
 
     public List<Carrinho> getCarrinho() {

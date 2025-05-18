@@ -14,6 +14,9 @@ public class Pagamento {
         this.pedido_id = pedido_id;
     }
 
+    public Pagamento() {
+    }
+
     public Integer getId() {
         return id;
     }

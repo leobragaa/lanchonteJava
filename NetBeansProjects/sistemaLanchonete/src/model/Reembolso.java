@@ -11,6 +11,9 @@ public class Reembolso {
         this.motivo = motivo;
         this.pedido_id = pedido_id;
     }
+
+    public Reembolso() {
+    }
     
     public Integer getId() {
         return id;

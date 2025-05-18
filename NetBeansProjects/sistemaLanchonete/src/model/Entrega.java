@@ -1,15 +1,17 @@
 
 package model;
 
+import java.util.List;
+
 public class Entrega {
     private Integer id;
     private boolean tipoEntrega;
     private Cliente cliente_id;
-    private Delivery deleviry_id;
+    private List<Delivery> deleviry_id;
     private Pedido pedido_id;
     private Status_pedidos status_pedidos_id;
 
-    public Entrega(Integer id, boolean tipoEntrega, Cliente cliente_id, Delivery deleviry_id, Pedido pedido_id, Status_pedidos status_pedidos_id) {
+    public Entrega(Integer id, boolean tipoEntrega, Cliente cliente_id, List<Delivery> deleviry_id, Pedido pedido_id, Status_pedidos status_pedidos_id) {
         this.id = id;
         this.tipoEntrega = tipoEntrega;
         this.cliente_id = cliente_id;
@@ -17,19 +19,20 @@ public class Entrega {
         this.pedido_id = pedido_id;
         this.status_pedidos_id = status_pedidos_id;
     }
+
     public Entrega() {
 
     }
-    
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public boolean getTipoEntrega() {
+    public boolean isTipoEntrega() {
         return tipoEntrega;
     }
 
@@ -45,11 +48,11 @@ public class Entrega {
         this.cliente_id = cliente_id;
     }
 
-    public Delivery getDeleviry_id() {
+    public List<Delivery> getDeleviry_id() {
         return deleviry_id;
     }
 
-    public void setDeleviry_id(Delivery deleviry_id) {
+    public void setDeleviry_id(List<Delivery> deleviry_id) {
         this.deleviry_id = deleviry_id;
     }
 
@@ -68,5 +71,5 @@ public class Entrega {
     public void setStatus_pedidos_id(Status_pedidos status_pedidos_id) {
         this.status_pedidos_id = status_pedidos_id;
     }
-    
+
 }

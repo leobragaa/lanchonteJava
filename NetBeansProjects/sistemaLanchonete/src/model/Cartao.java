@@ -6,6 +6,7 @@ public class Cartao {
     private boolean tipoPagamento;
     private String numCartao;
     private Integer cvv;
+    private Met_Pagamento metPagamento_id;
 
     public Cartao(Integer id, boolean tipoPagamento, String numCartao, Integer cvv) {
         this.id = id;
@@ -15,7 +16,6 @@ public class Cartao {
     }
 
     public Cartao() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public Integer getId() {
@@ -48,6 +48,14 @@ public class Cartao {
 
     public void setCvv(Integer cvv) {
         this.cvv = cvv;
+    }
+
+    public Met_Pagamento getMetPagamento_id() {
+        return metPagamento_id;
+    }
+
+    public void setMetPagamento_id(Met_Pagamento metPagamento_id) {
+        this.metPagamento_id = metPagamento_id;
     }
     
 }

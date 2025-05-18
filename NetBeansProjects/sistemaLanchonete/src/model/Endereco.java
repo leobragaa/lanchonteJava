@@ -7,17 +7,22 @@ public class Endereco {
     private String cep;
     private Bairro bairro_id;
     private Double distancia;
+    private Delivery delivery_id;
+    private Taxa_Entrega taxaEntrega_id;
 
-    public Endereco(Integer id, String rua, String cep, Bairro bairro_id, Double distancia) {
+    public Endereco() {
+    }
+
+    public Endereco(Integer id, String rua, String cep, Bairro bairro_id, Double distancia, Delivery delivery_id, Taxa_Entrega taxaEntrega_id) {
         this.id = id;
         this.rua = rua;
         this.cep = cep;
         this.bairro_id = bairro_id;
         this.distancia = distancia;
+        this.delivery_id = delivery_id;
+        this.taxaEntrega_id = taxaEntrega_id;
     }
-    public Endereco(){
 
-    }
     public Integer getId() {
         return id;
     }
@@ -56,6 +61,22 @@ public class Endereco {
 
     public void setDistancia(Double distancia) {
         this.distancia = distancia;
+    }
+
+    public Delivery getDelivery_id() {
+        return delivery_id;
+    }
+
+    public void setDelivery_id(Delivery delivery_id) {
+        this.delivery_id = delivery_id;
+    }
+
+    public Taxa_Entrega getTaxaEntrega_id() {
+        return taxaEntrega_id;
+    }
+
+    public void setTaxaEntrega_id(Taxa_Entrega taxaEntrega_id) {
+        this.taxaEntrega_id = taxaEntrega_id;
     }
     
 }

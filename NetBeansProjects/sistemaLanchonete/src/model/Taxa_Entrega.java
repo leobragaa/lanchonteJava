@@ -12,11 +12,14 @@ public class Taxa_Entrega {
         this.endereco_id = endereco_id;
     }
 
+    public Taxa_Entrega() {
+    }
+
     public Integer getId() {
         return id;
     }
 
-    public void setId(int Integer) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -35,5 +38,5 @@ public class Taxa_Entrega {
     public void setEndereco_id(Endereco endereco_id) {
         this.endereco_id = endereco_id;
     }
-    
+
 }

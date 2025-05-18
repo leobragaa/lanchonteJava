@@ -7,10 +7,13 @@ public class Cliente {
     private Integer id;
     private String nome;
     private List <Telefone> telefone_id;
+    private List <Pedido> pedido_id;
 
-    public Cliente(String nome, List telefone_id) {
+    public Cliente(Integer id, String nome, List<Telefone> telefone_id, List<Pedido> pedido_id) {
+        this.id = id;
         this.nome = nome;
         this.telefone_id = telefone_id;
+        this.pedido_id = pedido_id;
     }
 
     public Cliente() {
@@ -23,7 +26,7 @@ public class Cliente {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public String getNome() {
         return nome;
     }
@@ -40,5 +43,12 @@ public class Cliente {
         this.telefone_id = telefone_id;
     }
 
-    
+    public List<Pedido> getPedido_id() {
+        return pedido_id;
+    }
+
+    public void setPedido_id(List<Pedido> pedido_id) {
+        this.pedido_id = pedido_id;
+    }
+
 }
