@@ -1,19 +1,25 @@
 
 package dao;
 
+import java.sql.SQLException;
 import java.util.List;
+import model.Bairro;
+import model.Delivery;
 import model.Endereco;
+import model.Taxa_Entrega;
 
 public interface EnderecoDao {
     //
-    public void salvar (EnderecoDao endereco);
-    public void editar (EnderecoDao endereco);
-    public List listar (EnderecoDao endereco);
-    public void delete (EnderecoDao endereco);
+    public void salvar (EnderecoDao endereco) throws SQLException;
+    public void editar (EnderecoDao endereco) throws SQLException;
+    public List listar () throws SQLException;
+    public void delete (EnderecoDao endereco) throws SQLException;
     //
     public Endereco findIdForEndereco(Integer id);
     public Endereco findRuaForEndereco(String rua_id);
     public Endereco findCepForEndereco(String cep_id);
-    public Endereco findBairroForEndereco(String bairro_id);
-    public Endereco findDistanciaForEndereco(Integer distancia_id); 
+    public Endereco findBairroForEndereco(Bairro bairro_id);
+    public Endereco findDistanciaForEndereco(Double distancia_id); 
+    public Endereco findDeliveryForEndereco(Delivery delivery_id); 
+    public Endereco findTaxaEntregaForEndereco(Taxa_Entrega taxaEntrega_id); 
 }

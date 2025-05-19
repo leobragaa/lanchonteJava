@@ -1,16 +1,20 @@
 
 package dao;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
+import model.Carrinho;
+import model.Entrega;
 import model.Pedido;
+import model.Reembolso;
 
 public interface PedidoDao {
     //
-    public void salvar (Pedido pedido);
-    public void delete (Pedido pedido);
-    public List listar (Pedido pedido);
-    public void editar (Pedido pedido);
+    public void salvar (Pedido pedido)throws SQLException;
+    public void delete (Pedido pedido)throws SQLException;
+    public List listar ()throws SQLException;
+    public void editar (Pedido pedido)throws SQLException;
     //
     public Pedido findIdForPedido (Integer id);
     public Pedido findHoraForPedido (String hora_pedido);
@@ -18,7 +22,7 @@ public interface PedidoDao {
     public Pedido findNumeroaForPedido (Integer numero_pedido);
     public Pedido findDataForPedido (Date data_pedido);
     public Pedido findStatusForPedido (String status_id);
-    public Pedido findEntregaForPedido (Integer entrega_id);
-    public Pedido findReembolsoForPedido (Integer reembolso_id);
-    public Pedido findCarrinhoForPedido(String carrinho_id);
+    public Pedido findEntregaForPedido (Entrega entrega_id);
+    public Pedido findReembolsoForPedido (List<Reembolso> reembolso_id);
+    public Pedido findCarrinhoForPedido(List<Carrinho> carrinho_id);
 }
