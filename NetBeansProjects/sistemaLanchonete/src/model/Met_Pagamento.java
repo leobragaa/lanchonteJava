@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Met_Pagamento {
     private Integer id;
-    private String pix;
+    private Double pix;
     private List<Dinheiro> dinheiro_id;
     private List<Cartao> cartao_id;
 
-    public Met_Pagamento(Integer id, String pix, List<Dinheiro> dinheiro_id, List<Cartao> cartao_id) {
+    public Met_Pagamento(Integer id, Double pix, List<Dinheiro> dinheiro_id, List<Cartao> cartao_id) {
         this.id = id;
         this.pix = pix;
         this.dinheiro_id = dinheiro_id;
@@ -27,11 +27,11 @@ public class Met_Pagamento {
         this.id = id;
     }
 
-    public String getPix() {
+    public Double getPix() {
         return pix;
     }
 
-    public void setPix(String pix) {
+    public void setPix(Double pix) {
         this.pix = pix;
     }
 

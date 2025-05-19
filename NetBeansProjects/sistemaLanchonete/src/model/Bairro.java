@@ -3,12 +3,12 @@ package model;
 public class Bairro {
     private Integer id;
     private String nome;
-    private Endereco endereco;
+    private Endereco endereco_id;
 
-    public Bairro(Integer id, String nome, Endereco endereco) {
+    public Bairro(Integer id, String nome, Endereco endereco_id) {
         this.id = id;
         this.nome = nome;
-        this.endereco = endereco;
+        this.endereco_id = endereco_id;
     }
 
     public Bairro() {
@@ -31,11 +31,11 @@ public class Bairro {
     }
 
     public Endereco getEndereco() {
-        return endereco;
+        return endereco_id;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setEndereco(Endereco endereco_id) {
+        this.endereco_id = endereco_id;
     }
     
 }
