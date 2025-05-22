@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Delivery;
+import model.Endereco;
+import model.Entrega;
 
 public class DeliveryImplements implements DeliveryDao{
 
@@ -30,7 +32,8 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
                 delivery.setNumero(resultSet.getInt("numero"));
                 delivery.setComplemento(resultSet.getString("complemento"));
-                delivery.setEndereco_id(resultSet.getString("endereco"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
                 return delivery;
             }
             
@@ -56,7 +59,9 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
                 delivery.setNumero(resultSet.getInt("numero"));
                 delivery.setComplemento(resultSet.getString("complemento"));
-                delivery.setEndereco_id(resultSet.getString("endereco"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
+
                 return delivery;
             }
             
@@ -82,7 +87,9 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
                 delivery.setNumero(resultSet.getInt("numero"));
                 delivery.setComplemento(resultSet.getString("complemento"));
-                delivery.setEndereco_id(resultSet.getString("endereco"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
+            
                 return delivery;
             }
             
@@ -108,7 +115,9 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
                 delivery.setNumero(resultSet.getInt("numero"));
                 delivery.setComplemento(resultSet.getString("complemento"));
-                delivery.setEndereco_id(resultSet.getString("endereco"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
+                
                 return delivery;
             }
             
@@ -119,12 +128,12 @@ public class DeliveryImplements implements DeliveryDao{
     }
 
     @Override
-    public Delivery findEnderecoForDelivery(String endereco_id) {
+    public Delivery findEnderecoForDelivery(Endereco endereco_id) {
         PreparedStatement prepareStatement;
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement("SELECT * FROM delivery WHERE endereco = ?");
-            prepareStatement.setString(5,endereco_id);
+            prepareStatement.setObject(5,endereco_id);
             
             ResultSet resultSet = prepareStatement.getResultSet();
             
@@ -134,7 +143,9 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
                 delivery.setNumero(resultSet.getInt("numero"));
                 delivery.setComplemento(resultSet.getString("complemento"));
-                delivery.setEndereco_id(resultSet.getString("endereco"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
+                
                 return delivery;
             }
             
@@ -155,7 +166,9 @@ public class DeliveryImplements implements DeliveryDao{
                 prepareStatement.setInt(2, delivery.getChaveEntrega());
                 prepareStatement.setInt(3, delivery.getNumero());
                 prepareStatement.setString(4, delivery.getComplemento());
-                prepareStatement.setInt(5, delivery.getEndereco_id());
+                prepareStatement.setObject(5, delivery.getEndereco_id());
+                prepareStatement.setObject(6, delivery.getEntrega_id());
+
         } catch (SQLException ex) {
             Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar o valor", ex);
         }    
@@ -172,7 +185,9 @@ public class DeliveryImplements implements DeliveryDao{
                 prepareStatement.setInt(2, delivery.getChaveEntrega());
                 prepareStatement.setInt(3, delivery.getNumero());
                 prepareStatement.setString(4, delivery.getComplemento());
-                prepareStatement.setInt(5, delivery.getEndereco_id());
+                prepareStatement.setObject(5, delivery.getEndereco_id());
+                prepareStatement.setObject(6, delivery.getEntrega_id());
+
         } catch (SQLException ex) {
             Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar o valor", ex);
         }             
@@ -189,13 +204,18 @@ public class DeliveryImplements implements DeliveryDao{
                 prepareStatement.setInt(2, delivery.getChaveEntrega());
                 prepareStatement.setInt(3, delivery.getNumero());
                 prepareStatement.setString(4, delivery.getComplemento());
-                prepareStatement.setInt(5, delivery.getEndereco_id());
+                prepareStatement.setObject(5, delivery.getEndereco_id());
+                prepareStatement.setObject(6, delivery.getEntrega_id());
                 
         }catch(SQLException ex){
             Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }   
     }
 
+    @Override
+    public Delivery findEntregaForDelivery(Entrega entrega_id) {
+    }
+    
     @Override
     public List listar() throws SQLException {
         List<Delivery> carrinhoList = new LinkedList<>();
@@ -214,7 +234,8 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
                 delivery.setNumero(resultSet.getInt("numero"));
                 delivery.setComplemento(resultSet.getString("complemento"));
-                delivery.setEndereco_id(resultSet.getString("endereco"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
                 
                 carrinhoList.add(delivery);
             }            
@@ -223,5 +244,6 @@ public class DeliveryImplements implements DeliveryDao{
         }
         return carrinhoList; 
     }
+
 
 }

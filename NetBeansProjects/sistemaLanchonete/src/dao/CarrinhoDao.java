@@ -16,7 +16,7 @@ public interface CarrinhoDao {
     //
     public Carrinho findIdForCarrinho(Integer id);
     public Carrinho findProdutoForCarrinho(Produto produto_id);
-    public Carrinho findEscolhaForCarrinho(Ingrediente_Escolha ingredienteEscolha);
+    public Carrinho findEscolhaForCarrinho(Ingrediente_Escolha ingredienteEscolha_id);
     public Carrinho findQuantidadeForCarrinho(Integer qtnd_id);
     
 }

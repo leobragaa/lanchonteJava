@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cupom;
+import model.Pagamento;
 
 public class CupomImplements implements CupomDao{
 
@@ -21,11 +22,13 @@ public class CupomImplements implements CupomDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " INSERT INTO cupom (id, valorCupom, codigo, validadeData) VALUES (?, ?, ?, ?, ?)");
+                    " INSERT INTO cupom (id, valorCupom, codigo, validadeData, pagamento) VALUES (?, ?, ?, ?, ?)");
             prepareStatement.setInt(1,cupom.getId());
             prepareStatement.setDouble(2, cupom.getValorCupom());
             prepareStatement.setInt(3, cupom.getCodigo());
             prepareStatement.setDate(4, (java.sql.Date) cupom.getValidade());
+            prepareStatement.setObject(5, cupom.getPagamento());
+
         }catch(SQLException ex){
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }             
@@ -37,11 +40,13 @@ public class CupomImplements implements CupomDao{
         try {
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    "UPDATE cupom SET valorCupom = ?, codigo = ?, validadeData = ? WHERE id = ?");
+                    "UPDATE cupom SET valorCupom = ?, codigo = ?, validadeData = ?, pagamento = ? WHERE id = ?");
             prepareStatement.setInt(1,cupom.getId());
             prepareStatement.setDouble(2, cupom.getValorCupom());
             prepareStatement.setInt(3, cupom.getCodigo());
             prepareStatement.setDate(4, (java.sql.Date) cupom.getValidade());
+            prepareStatement.setObject(5, cupom.getPagamento());
+
         } catch (SQLException ex) {
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar", ex);
         }  
@@ -53,11 +58,12 @@ public class CupomImplements implements CupomDao{
         try {
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    "DELETE FROM cupom (id, valorCupom, codigo, validadeData) VALUES (?, ?, ?, ?)");
+                    "DELETE FROM cupom (id, valorCupom, codigo, validadeData, pagamento) VALUES (?, ?, ?, ?, ?)");
             prepareStatement.setInt(1,cupom.getId());
             prepareStatement.setDouble(2, cupom.getValorCupom());
             prepareStatement.setInt(3, cupom.getCodigo());
             prepareStatement.setDate(4, (java.sql.Date) cupom.getValidade());
+            prepareStatement.setObject(5, cupom.getPagamento());
         } catch (SQLException ex) {
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao Deletar", ex);
         }    
@@ -79,6 +85,8 @@ public class CupomImplements implements CupomDao{
                 cupom.setValorCupom(resultSet.getDouble("valorCupom"));
                 cupom.setCodigo(resultSet.getInt("codigo"));
                 cupom.setValidade(resultSet.getDate("validadeData"));
+                cupom.setPagamento((Pagamento) resultSet.getObject("pagamento"));
+
                 return cupom;
             }
             
@@ -104,6 +112,8 @@ public class CupomImplements implements CupomDao{
                 cupom.setValorCupom(resultSet.getDouble("valorCupom"));
                 cupom.setCodigo(resultSet.getInt("codigo"));
                 cupom.setValidade(resultSet.getDate("validadeData"));
+                cupom.setPagamento((Pagamento) resultSet.getObject("pagamento"));
+
                 return cupom;
             }
             
@@ -129,6 +139,8 @@ public class CupomImplements implements CupomDao{
                 cupom.setValorCupom(resultSet.getDouble("valorCupom"));
                 cupom.setCodigo(resultSet.getInt("codigo"));
                 cupom.setValidade(resultSet.getDate("validadeData"));
+                cupom.setPagamento((Pagamento) resultSet.getObject("pagamento"));
+
                 return cupom;
             }
             
@@ -154,6 +166,8 @@ public class CupomImplements implements CupomDao{
                 cupom.setValorCupom(resultSet.getDouble("valorCupom"));
                 cupom.setCodigo(resultSet.getInt("codigo"));
                 cupom.setValidade(resultSet.getDate("validadeData"));
+                cupom.setPagamento((Pagamento) resultSet.getObject("pagamento"));
+
                 return cupom;
             }
             
@@ -163,6 +177,33 @@ public class CupomImplements implements CupomDao{
         return null;
     }
 
+    @Override
+    public Cupom findPagamentoForCupom(Pagamento pagamento_id) {
+        PreparedStatement prepareStatement;
+        try{
+            prepareStatement = Conexao.getConnection()
+                    .prepareStatement("SELECT * FROM cupom WHERE pagamento = ?");
+            prepareStatement.setObject(5,pagamento_id);
+            
+            ResultSet resultSet = prepareStatement.getResultSet();
+            
+            if(resultSet.next()){
+                Cupom cupom = new Cupom();
+                cupom.setId(resultSet.getInt("id"));
+                cupom.setValorCupom(resultSet.getDouble("valorCupom"));
+                cupom.setCodigo(resultSet.getInt("codigo"));
+                cupom.setValidade(resultSet.getDate("validadeData"));
+                cupom.setPagamento((Pagamento) resultSet.getObject("pagamento"));
+
+                return cupom;
+            }
+            
+        }catch(SQLException ex){
+            Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar por Pagamento", ex);
+        }
+        return null;        
+    }
+    
     @Override
     public List listar() throws SQLException{
         
@@ -182,6 +223,7 @@ public class CupomImplements implements CupomDao{
                 cupom.setValorCupom(resultSet.getDouble("valorCupom"));
                 cupom.setCodigo(resultSet.getInt("codigo"));
                 cupom.setValidade(resultSet.getDate("validadeData"));
+                cupom.setPagamento((Pagamento) resultSet.getObject("pagamento"));
                 
                 cupomList.add(cupom);
             }            
@@ -191,5 +233,6 @@ public class CupomImplements implements CupomDao{
         return cupomList;     
         
     }
+
 
 }

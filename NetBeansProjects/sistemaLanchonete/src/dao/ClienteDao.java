@@ -16,6 +16,6 @@ public interface ClienteDao {
     //
     public Cliente findIdForCliente (Integer id);
     public Cliente findNomeForCliente (String nome_id);
-    public List<Cliente> findTelefoneForCliente (List<Telefone> telefone_id);
-    public List<Cliente> findPedidoForCliente (List<Pedido> pedido_id);
+    public Cliente findTelefoneForCliente (List<Telefone> telefone_id);
+    public Cliente findPedidoForCliente (List<Pedido> pedido_id);
 }

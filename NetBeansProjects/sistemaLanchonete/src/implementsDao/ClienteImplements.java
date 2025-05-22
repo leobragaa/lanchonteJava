@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cliente;
+import model.Pedido;
+import model.Telefone;
 
 public class ClienteImplements implements ClienteDao{
 
@@ -20,10 +22,11 @@ public class ClienteImplements implements ClienteDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " INSERT INTO cliente(id, dd, numero, funcionario, cliente) VALUES (?, ?, ?, ?, ?)");
+                    " INSERT INTO cliente(id, nome, telefone, pedido) VALUES (?, ?, ?)");
             prepareStatement.setInt(1, cliente.getId());
             prepareStatement.setString(2, cliente.getNome());
-            prepareStatement.setString(3, cliente.getTelefone_id());
+            prepareStatement.setObject(3, cliente.getTelefone_id());
+            prepareStatement.setObject(4, cliente.getPedido_id());
 
         }catch(SQLException ex){
             Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
@@ -36,10 +39,11 @@ public class ClienteImplements implements ClienteDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " UPDATE cliente SET nome = ?, telefone = ? WHERE id = ?");
+                    " UPDATE cliente SET nome = ?, telefone = ?, pedido = ? WHERE id = ?");
             prepareStatement.setInt(1, cliente.getId());
             prepareStatement.setString(2, cliente.getNome());
-            prepareStatement.setString(3, cliente.getTelefone_id());
+            prepareStatement.setObject(3, cliente.getTelefone_id());
+            prepareStatement.setObject(4, cliente.getPedido_id());
 
         }catch(SQLException ex){
             Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar", ex);            
@@ -52,10 +56,11 @@ public class ClienteImplements implements ClienteDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " DELETE FROM telefone(nome, telefone) VALUES(?, ?)");
+                    " DELETE FROM telefone(nome, telefone, pedido) VALUES(?, ?, ?)");
             prepareStatement.setInt(1, cliente.getId());
             prepareStatement.setString(2, cliente.getNome());
-            prepareStatement.setInt(3, cliente.getTelefone_id());
+            prepareStatement.setObject(3, cliente.getTelefone_id());
+            prepareStatement.setObject(4, cliente.getPedido_id());
 
         }catch(SQLException ex){
             Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao Deletar", ex);            
@@ -74,7 +79,8 @@ public class ClienteImplements implements ClienteDao{
             Cliente cliente = new Cliente();
             cliente.setId(resultSet.getInt("id"));
             cliente.setNome(resultSet.getString("nome"));
-            cliente.setTelefone_id(resultSet.getInt("telefone"));
+            cliente.setTelefone_id((List<Telefone>) resultSet.getObject("telefone"));
+            cliente.setPedido_id((List<Pedido>) resultSet.getObject("pedido"));
             return cliente;
         }
         } catch (SQLException ex) {
@@ -95,7 +101,9 @@ public class ClienteImplements implements ClienteDao{
             Cliente cliente = new Cliente();
             cliente.setId(resultSet.getInt("id"));
             cliente.setNome(resultSet.getString("nome"));
-            cliente.getTelefone_id(resultSet.getInt("telefone"));
+            cliente.setTelefone_id((List<Telefone>) resultSet.getObject("telefone"));
+            cliente.setPedido_id((List<Pedido>) resultSet.getObject("pedido"));
+
             return cliente;
         }
         } catch (SQLException ex) {
@@ -105,18 +113,20 @@ public class ClienteImplements implements ClienteDao{
     }
 
     @Override
-    public Cliente findTelefoneForCliente(String telefone_id) {
+    public Cliente findTelefoneForCliente(List<Telefone> telefone_id) {
         try {
         PreparedStatement prepareStatement = Conexao.getConnection()
             .prepareStatement("SELECT * FROM cliente WHERE telefone = ?");
-        prepareStatement.setString(3, telefone_id);
+        prepareStatement.setObject(3, telefone_id);
         ResultSet resultSet = prepareStatement.getResultSet();
 
         if (resultSet.next()) {
             Cliente cliente = new Cliente();
             cliente.setId(resultSet.getInt("id"));
             cliente.setNome(resultSet.getString("nome"));
-            cliente.getTelefone_id(resultSet.getString("telefone"));
+            cliente.setTelefone_id((List<Telefone>) resultSet.getObject("telefone"));
+            cliente.setPedido_id((List<Pedido>) resultSet.getObject("pedido"));
+
             return cliente;
         }
         } catch (SQLException ex) {
@@ -141,7 +151,8 @@ public class ClienteImplements implements ClienteDao{
                 
                 cliente.setId(resultSet.getInt("id"));
                 cliente.setNome(resultSet.getString("nome"));
-                cliente.setTelefone_id(resultSet.getString("telefone"));
+                cliente.setTelefone_id((List<Telefone>) resultSet.getObject("telefone"));
+                cliente.setPedido_id((List<Pedido>) resultSet.getObject("pedido"));
                 
                 clienteList.add(cliente);
             }            
@@ -149,6 +160,29 @@ public class ClienteImplements implements ClienteDao{
             Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao Listar", ex);                        
         }
         return clienteList;
+    }
+
+    @Override
+    public Cliente findPedidoForCliente(List<Pedido> pedido_id) {
+        try {
+        PreparedStatement prepareStatement = Conexao.getConnection()
+            .prepareStatement("SELECT * FROM cliente WHERE pedido = ?");
+        prepareStatement.setObject(4, pedido_id);
+        ResultSet resultSet = prepareStatement.getResultSet();
+
+        if (resultSet.next()) {
+            Cliente cliente = new Cliente();
+            cliente.setId(resultSet.getInt("id"));
+            cliente.setNome(resultSet.getString("nome"));
+            cliente.setTelefone_id((List<Telefone>) resultSet.getObject("telefone"));
+            cliente.setPedido_id((List<Pedido>) resultSet.getObject("pedido"));
+
+            return cliente;
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar pedido por ID", ex);
+        }
+        return null;           
     }
 
 }

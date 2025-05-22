@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cartao;
+import model.Met_Pagamento;
 
 public class CartaoImplements implements CartaoDao{
 
@@ -20,11 +21,12 @@ public class CartaoImplements implements CartaoDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " INSERT INTO cartao(id, tipoPagamento, numCartao, cvv) VALUES (?, ?, ?, ?)");
+                    " INSERT INTO cartao(id, tipoPagamento, numCartao, cvv, metPagamento) VALUES (?, ?, ?, ?, ?)");
             prepareStatement.setInt(1, cartao.getId());
             prepareStatement.setBoolean(2, cartao.isTipoPagamento());
             prepareStatement.setString(3, cartao.getNumCartao());
             prepareStatement.setInt(4, cartao.getCvv());
+            prepareStatement.setObject(5, cartao.getMetPagamento_id());
         }catch(SQLException ex){
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }        
@@ -36,11 +38,12 @@ public class CartaoImplements implements CartaoDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " UPDATE cartao SET id = ?, tipoPagamento = ?, numCartao = ?, cvv = ? WHERE id = ?");
+                    " UPDATE cartao SET id = ?, tipoPagamento = ?, numCartao = ?, cvv = ?, metPagamento = ? WHERE id = ?");
             prepareStatement.setInt(1, cartao.getId());
             prepareStatement.setBoolean(2, cartao.isTipoPagamento());
             prepareStatement.setString(3, cartao.getNumCartao());
             prepareStatement.setInt(4, cartao.getCvv());
+            prepareStatement.setObject(5, cartao.getMetPagamento_id());
         }catch(SQLException ex){
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }     
@@ -52,11 +55,12 @@ public class CartaoImplements implements CartaoDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " DELETE FROM cartao(id, tipoPagamento, numCartao, cvv) VALUES (?, ?, ?, ?)");
+                    " DELETE FROM cartao(id, tipoPagamento, numCartao, cvv, metPagamento) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1, cartao.getId());
             prepareStatement.setBoolean(2, cartao.isTipoPagamento());
             prepareStatement.setString(3, cartao.getNumCartao());
             prepareStatement.setInt(4, cartao.getCvv());
+            prepareStatement.setObject(5, cartao.getMetPagamento_id());
         }catch(SQLException ex){
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }     
@@ -76,6 +80,7 @@ public class CartaoImplements implements CartaoDao{
                 cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
                 cartao.setNumCartao(resultSet.getString("numCartao"));
                 cartao.setCvv(resultSet.getInt("cvv"));
+                cartao.setMetPagamento_id((Met_Pagamento) resultSet.getObject("metPagamento"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -85,11 +90,11 @@ public class CartaoImplements implements CartaoDao{
     }
 
     @Override
-    public Cartao findTipoPagamentoForCartao(String pagamento_id) {
+    public Cartao findTipoPagamentoForCartao(boolean tipoPgamento_id) {
         try {
             PreparedStatement prepareStatement = Conexao.getConnection()
                 .prepareStatement("SELECT * FROM cartao WHERE tipoPagamento = ?");
-            prepareStatement.setString(2, pagamento_id);
+            prepareStatement.setBoolean(2, tipoPgamento_id);
             ResultSet resultSet = prepareStatement.getResultSet();
 
             if (resultSet.next()) {
@@ -98,6 +103,7 @@ public class CartaoImplements implements CartaoDao{
                 cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
                 cartao.setNumCartao(resultSet.getString("numCartao"));
                 cartao.setCvv(resultSet.getInt("cvv"));
+                cartao.setMetPagamento_id((Met_Pagamento) resultSet.getObject("metPagamento"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -120,6 +126,7 @@ public class CartaoImplements implements CartaoDao{
                 cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
                 cartao.setNumCartao(resultSet.getString("numCartao"));
                 cartao.setCvv(resultSet.getInt("cvv"));
+                cartao.setMetPagamento_id((Met_Pagamento) resultSet.getObject("metPagamento"));
                 return cartao;
             }
         }catch (SQLException ex) {
@@ -142,12 +149,36 @@ public class CartaoImplements implements CartaoDao{
                 cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
                 cartao.setNumCartao(resultSet.getString("numCartao"));
                 cartao.setCvv(resultSet.getInt("cvv"));
+                cartao.setMetPagamento_id((Met_Pagamento) resultSet.getObject("metPagamento"));
                 return cartao;
             }
         }catch (SQLException ex) {
             Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar cartao por CVV", ex);
         }
         return null;          
+    }
+    
+    @Override
+    public Cartao findMetPagamentoForCartao(Met_Pagamento metPagamento_id) {
+        try {
+            PreparedStatement prepareStatement = Conexao.getConnection()
+                .prepareStatement("SELECT * FROM cartao WHERE metPagamento = ?");
+            prepareStatement.setObject(5, metPagamento_id);
+            ResultSet resultSet = prepareStatement.getResultSet();
+
+            if (resultSet.next()) {
+                Cartao cartao = new Cartao();
+                cartao.setId(resultSet.getInt("id"));
+                cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
+                cartao.setNumCartao(resultSet.getString("numCartao"));
+                cartao.setCvv(resultSet.getInt("cvv"));
+                cartao.setMetPagamento_id((Met_Pagamento) resultSet.getObject("metPagamento"));
+                return cartao;
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(CartaoImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar cartao por o Metodo de Pagamento.", ex);
+        }
+        return null;       
     }
 
     @Override
@@ -168,6 +199,7 @@ public class CartaoImplements implements CartaoDao{
                 cartao.setTipoPagamento(resultSet.getBoolean("tipoPagamento"));
                 cartao.setNumCartao(resultSet.getString("numCartao"));
                 cartao.setCvv(resultSet.getInt("cvv"));
+                cartao.setMetPagamento_id((Met_Pagamento) resultSet.getObject("metPagamento"));
                 
                 cartaoList.add(cartao);
             }            
@@ -176,4 +208,5 @@ public class CartaoImplements implements CartaoDao{
         }
         return cartaoList;
     }
+
 }

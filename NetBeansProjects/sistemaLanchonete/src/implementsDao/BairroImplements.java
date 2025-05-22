@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Endereco;
 
 public class BairroImplements implements BairroDao{
 
@@ -124,6 +125,11 @@ public class BairroImplements implements BairroDao{
             Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao Encontrar Nome do Bairro", ex);
         }
         return null;
+    }
+
+    @Override
+    public Bairro findEnderecoForBairro(Endereco endereco_id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

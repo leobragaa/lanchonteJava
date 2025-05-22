@@ -22,7 +22,7 @@ public class Conexao {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, "Erro na Conexao com o Banco de Dados", ex);
         }
     }
-    public static Connection getConexao(){
+    public static Connection getConnection(){
         if (obj==null){
             obj = new Conexao();
         }

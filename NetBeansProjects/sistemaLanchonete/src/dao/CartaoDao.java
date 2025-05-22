@@ -16,5 +16,5 @@ public interface CartaoDao {
     public Cartao findTipoPagamentoForCartao (boolean tipoPgamento_id);
     public Cartao findNumCartaoForCartao (String numCartao_id);
     public Cartao findCvvForCartao (Integer cvv_id);
-    public Cartao findCvvForCartao (Met_Pagamento metPagamento_id);
+    public Cartao findMetPagamentoForCartao (Met_Pagamento metPagamento_id);
 }

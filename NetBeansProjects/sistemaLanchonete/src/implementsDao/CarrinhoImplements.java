@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Carrinho;
+import model.Ingrediente_Escolha;
+import model.Produto;
 
 
 public class CarrinhoImplements implements CarrinhoDao{
@@ -23,8 +25,8 @@ public class CarrinhoImplements implements CarrinhoDao{
                     .prepareStatement(
                     " INSERT INTO carrinho (id, produto, ingredienteEscolha, quantidade) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1,carrinho.getId());
-            prepareStatement.setString(2, carrinho.getProduto_id());
-            prepareStatement.setInt(3, carrinho.getIngredienteEscolha());
+            prepareStatement.setObject(2,carrinho.getProduto_id());
+            prepareStatement.setObject(3,carrinho.getIngredienteEscolha_id());
             prepareStatement.setInt(4,carrinho.getQuantidade());
         }catch(SQLException ex){
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
@@ -39,8 +41,8 @@ public class CarrinhoImplements implements CarrinhoDao{
                     .prepareStatement(
                     "UPDATE carrinho SET produto = ?, ingredienteEscolha = ?, quantidade = ? WHERE id = ?");
             prepareStatement.setInt(1,carrinho.getId());
-            prepareStatement.setString(2,carrinho.getProduto_id());
-            prepareStatement.setInt(3,carrinho.getIngredienteEscolha());
+            prepareStatement.setObject(2,carrinho.getProduto_id());
+            prepareStatement.setObject(3,carrinho.getIngredienteEscolha_id());
             prepareStatement.setInt(4,carrinho.getQuantidade());
         } catch (SQLException ex) {
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar o valor", ex);
@@ -55,8 +57,8 @@ public class CarrinhoImplements implements CarrinhoDao{
                     .prepareStatement(
                     "DELETE FROM carrinho (id, produto, ingredienteEscolha, quantidade) VALUES (?, ?, ?, ?)");
             prepareStatement.setInt(1,carrinho.getId());
-            prepareStatement.setString(2,carrinho.getProduto_id());
-            prepareStatement.setInt(3,carrinho.getIngredienteEscolha());
+            prepareStatement.setObject(2,carrinho.getProduto_id());
+            prepareStatement.setObject(3,carrinho.getIngredienteEscolha_id());
             prepareStatement.setInt(4,carrinho.getQuantidade());
         } catch (SQLException ex) {
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao Deletar o valor", ex);
@@ -76,8 +78,8 @@ public class CarrinhoImplements implements CarrinhoDao{
             if(resultSet.next()){
                 Carrinho carrinho = new Carrinho();
                 carrinho.setId(resultSet.getInt("id"));
-                carrinho.setProduto_id(resultSet.getString("produto"));
-                carrinho.setIngredienteEscolha(resultSet.getInt("ingredienteEscolha"));
+                carrinho.setProduto_id((Produto) resultSet.getObject("produto"));
+                carrinho.setIngredienteEscolha_id((Ingrediente_Escolha) resultSet.getObject("ingredienteEscolha"));
                 carrinho.setQuantidade(resultSet.getInt("quantidade"));
                 return carrinho;
             }
@@ -89,20 +91,20 @@ public class CarrinhoImplements implements CarrinhoDao{
     }
 
     @Override
-    public Carrinho findProdutoForCarrinho(String produto_id) {
+    public Carrinho findProdutoForCarrinho(Produto produto_id) {
         PreparedStatement prepareStatement;
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement("SELECT * FROM carrinho WHERE produto = ?");
-            prepareStatement.setString(2,produto_id);
+            prepareStatement.setObject(2,produto_id);
             
             ResultSet resultSet = prepareStatement.getResultSet();
             
             if(resultSet.next()){
                 Carrinho carrinho = new Carrinho();
                 carrinho.setId(resultSet.getInt("id"));
-                carrinho.setProduto_id(resultSet.getString("produto"));
-                carrinho.setIngredienteEscolha(resultSet.getInt("ingredienteEscolha"));
+                carrinho.setProduto_id((Produto) resultSet.getObject("produto"));
+                carrinho.setIngredienteEscolha_id((Ingrediente_Escolha) resultSet.getObject("ingredienteEscolha"));
                 carrinho.setQuantidade(resultSet.getInt("quantidade"));
                 return carrinho;
             }
@@ -113,21 +115,23 @@ public class CarrinhoImplements implements CarrinhoDao{
         return null;        
     }
 
+
     @Override
-    public Carrinho findEscolhaForCarrinho(Integer carrinho_id) {
+    public Carrinho findEscolhaForCarrinho(Ingrediente_Escolha ingredienteEscolha_id) {
+
         PreparedStatement prepareStatement;
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement("SELECT * FROM carrinho WHERE ingredienteEscolha = ?");
-            prepareStatement.setInt(3,carrinho_id);
+            prepareStatement.setObject(3,ingredienteEscolha_id);
             
             ResultSet resultSet = prepareStatement.getResultSet();
             
             if(resultSet.next()){
                 Carrinho carrinho = new Carrinho();
                 carrinho.setId(resultSet.getInt("id"));
-                carrinho.setProduto_id(resultSet.getString("produto"));
-                carrinho.setIngredienteEscolha(resultSet.getInt("ingredienteEscolha"));
+                carrinho.setProduto_id((Produto) resultSet.getObject("produto"));
+                carrinho.setIngredienteEscolha_id((Ingrediente_Escolha) resultSet.getObject("ingredienteEscolha"));
                 carrinho.setQuantidade(resultSet.getInt("quantidade"));
                 return carrinho;
             }
@@ -135,9 +139,8 @@ public class CarrinhoImplements implements CarrinhoDao{
         }catch(SQLException ex){
             Logger.getLogger(CarrinhoImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar por Ingrediente Escolha", ex);
         }
-        return null;    
+        return null; 
     }
-
     @Override
     public Carrinho findQuantidadeForCarrinho(Integer qtnd_id) {
         PreparedStatement prepareStatement;
@@ -151,8 +154,8 @@ public class CarrinhoImplements implements CarrinhoDao{
             if(resultSet.next()){
                 Carrinho carrinho = new Carrinho();
                 carrinho.setId(resultSet.getInt("id"));
-                carrinho.setProduto_id(resultSet.getString("produto"));
-                carrinho.setIngredienteEscolha(resultSet.getInt("ingredienteEscolha"));
+                carrinho.setProduto_id((Produto) resultSet.getObject("produto"));
+                carrinho.setIngredienteEscolha_id((Ingrediente_Escolha) resultSet.getObject("ingredienteEscolha"));
                 carrinho.setQuantidade(resultSet.getInt("quantidade"));
                 return carrinho;
             }
@@ -177,10 +180,10 @@ public class CarrinhoImplements implements CarrinhoDao{
             while(resultSet.next()){
                 Carrinho carrinho = new Carrinho();
                 
-                carrinho.setId(resultSet.setInt("id"));
-                carrinho.setProduto_id(resultSet.setString("produto"));
-                carrinho.setIngredienteEscolha(resultSet.setInt("ingredienteEscolha"));
-                carrinho.setQuantidade(resultSet.setInt("quantidade"));
+                carrinho.setId(resultSet.getInt("id"));
+                carrinho.setProduto_id((Produto) resultSet.getObject("produto"));
+                carrinho.setIngredienteEscolha_id((Ingrediente_Escolha) resultSet.getObject("ingredienteEscolha"));
+                carrinho.setQuantidade(resultSet.getInt("quantidade"));
                 
                 carrinhoList.add(carrinho);
             }            
@@ -189,5 +192,6 @@ public class CarrinhoImplements implements CarrinhoDao{
         }
         return carrinhoList;       
     }
+    
 
 }
