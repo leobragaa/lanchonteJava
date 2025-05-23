@@ -11,6 +11,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Cliente;
+import model.Funcionario;
 
 public class TelefoneImplements implements TelefoneDao{
 
@@ -24,8 +26,8 @@ public class TelefoneImplements implements TelefoneDao{
             prepareStatement.setInt(1, telefone.getId());
             prepareStatement.setInt(2, telefone.getDd());
             prepareStatement.setInt(3, telefone.getNumero());
-            prepareStatement.setString(4, telefone.getFuncionario());
-            prepareStatement.setString(5, telefone.getCliente_id());
+            prepareStatement.setObject(4, telefone.getFuncionario());
+            prepareStatement.setObject(5, telefone.getCliente_id());
         }catch(SQLException ex){
             Logger.getLogger(TelefoneImplements.class.getName()).log(Level.SEVERE, "Erro ao Salvar os dados", ex);            
         }
@@ -41,8 +43,8 @@ public class TelefoneImplements implements TelefoneDao{
             prepareStatement.setInt(1,telefone.getId());
             prepareStatement.setInt(2,telefone.getDd());
             prepareStatement.setInt(3,telefone.getNumero());
-            prepareStatement.setString(4,telefone.getFuncionario());
-            prepareStatement.setString(5,telefone.getCliente_id());
+            prepareStatement.setObject(4,telefone.getFuncionario());
+            prepareStatement.setObject(5,telefone.getCliente_id());
         }catch(SQLException ex){
             Logger.getLogger(TelefoneImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar", ex);            
         }
@@ -58,8 +60,8 @@ public class TelefoneImplements implements TelefoneDao{
             prepareStatement.setInt(1, telefone.getId());
             prepareStatement.setInt(2, telefone.getDd());
             prepareStatement.setInt(3, telefone.getNumero());
-            prepareStatement.setString(4, telefone.getFuncionario());
-            prepareStatement.setString(5, telefone.getCliente_id());
+            prepareStatement.setObject(4, telefone.getFuncionario());
+            prepareStatement.setObject(5, telefone.getCliente_id());
         }catch(SQLException ex){
             Logger.getLogger(TelefoneImplements.class.getName()).log(Level.SEVERE, "Erro ao Deletar", ex);            
         }
@@ -81,8 +83,9 @@ public class TelefoneImplements implements TelefoneDao{
                 telefone.setId(resultSet.getInt("id"));
                 telefone.setDd(resultSet.getInt("dd"));
                 telefone.setNumero(resultSet.getInt("numero"));
-                telefone.setFuncionario(resultSet.getString("funcionario"));
-                telefone.setCliente_id(resultSet.getString("cliente"));
+                telefone.setFuncionario((Funcionario) resultSet.getObject("funcionario"));
+                telefone.setCliente_id((Cliente) resultSet.getObject("cliente"));
+                
                 
                 telefoneList.add(telefone);
             }            
@@ -105,8 +108,8 @@ public class TelefoneImplements implements TelefoneDao{
             telefone.setId(resultSet.getInt("id"));
             telefone.setDd(resultSet.getInt("dd"));
             telefone.setNumero(resultSet.getInt("numero"));
-            telefone.setFuncionario(resultSet.getString("funcionario"));
-            telefone.setCliente_id(resultSet.getString("cliente"));
+            telefone.setFuncionario((Funcionario) resultSet.getObject("funcionario"));
+            telefone.setCliente_id((Cliente) resultSet.getObject("cliente"));
             return telefone;
         }
     } catch (SQLException ex) {
@@ -128,8 +131,8 @@ public class TelefoneImplements implements TelefoneDao{
             telefone.setId(resultSet.getInt("id"));
             telefone.setDd(resultSet.getInt("dd"));
             telefone.setNumero(resultSet.getInt("numero"));
-            telefone.setFuncionario(resultSet.getString("funcionario"));
-            telefone.setCliente_id(resultSet.getString("cliente"));
+            telefone.setFuncionario((Funcionario) resultSet.getObject("funcionario"));
+            telefone.setCliente_id((Cliente) resultSet.getObject("cliente"));
             return telefone;
         }
     } catch (SQLException ex) {
@@ -151,8 +154,8 @@ public class TelefoneImplements implements TelefoneDao{
             telefone.setId(resultSet.getInt("id"));
             telefone.setDd(resultSet.getInt("dd"));
             telefone.setNumero(resultSet.getInt("numero"));
-            telefone.setFuncionario(resultSet.getString("funcionario"));
-            telefone.setCliente_id(resultSet.getString("cliente"));
+            telefone.setFuncionario((Funcionario) resultSet.getObject("funcionario"));
+            telefone.setCliente_id((Cliente) resultSet.getObject("cliente"));
             return telefone;
         }
     } catch (SQLException ex) {
@@ -162,11 +165,11 @@ public class TelefoneImplements implements TelefoneDao{
     }
 
     @Override
-    public Telefone findTelefoneForFuncionario(String funcionario_id) {
+    public Telefone findTelefoneForFuncionario(Funcionario funcionario_id) {
         try {
             PreparedStatement prepareStatement = Conexao.getConnection()
                 .prepareStatement("SELECT * FROM telefone WHERE funcionario = ?");
-            prepareStatement.setInt(4, funcionario_id);
+            prepareStatement.setObject(4, funcionario_id);
             ResultSet resultSet = prepareStatement.getResultSet();
 
         if (resultSet.next()) {
@@ -174,8 +177,8 @@ public class TelefoneImplements implements TelefoneDao{
             telefone.setId(resultSet.getInt("id"));
             telefone.setDd(resultSet.getInt("dd"));
             telefone.setNumero(resultSet.getInt("numero"));
-            telefone.setFuncionario(resultSet.getString("funcionario"));
-            telefone.setCliente_id(resultSet.getString("cliente"));
+            telefone.setFuncionario((Funcionario) resultSet.getObject("funcionario"));
+            telefone.setCliente_id((Cliente) resultSet.getObject("cliente"));
             return telefone;
         }
     } catch (SQLException ex) {
@@ -185,7 +188,26 @@ public class TelefoneImplements implements TelefoneDao{
     }
 
     @Override
-    public Telefone findTelefoneForCliente(String cliente_id) {
+    public Telefone findTelefoneForCliente(Cliente cliente_id) {
+        try {
+            PreparedStatement prepareStatement = Conexao.getConnection()
+                .prepareStatement("SELECT * FROM telefone WHERE cliente = ?");
+            prepareStatement.setObject(5, cliente_id);
+            ResultSet resultSet = prepareStatement.getResultSet();
+
+        if (resultSet.next()) {
+            Telefone telefone = new Telefone();
+            telefone.setId(resultSet.getInt("id"));
+            telefone.setDd(resultSet.getInt("dd"));
+            telefone.setNumero(resultSet.getInt("numero"));
+            telefone.setFuncionario((Funcionario) resultSet.getObject("funcionario"));
+            telefone.setCliente_id((Cliente) resultSet.getObject("cliente"));
+            return telefone;
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(TelefoneImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar telefone por Cliente", ex);
+    }
+        return null;    
     }
 
     

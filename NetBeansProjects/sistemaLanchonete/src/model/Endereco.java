@@ -6,19 +6,19 @@ public class Endereco {
     private String rua;
     private String cep;
     private Bairro bairro_id;
-    private Double distancia;
+    private Double distancia_id;
     private Delivery delivery_id;
     private Taxa_Entrega taxaEntrega_id;
 
     public Endereco() {
     }
 
-    public Endereco(Integer id, String rua, String cep, Bairro bairro_id, Double distancia, Delivery delivery_id, Taxa_Entrega taxaEntrega_id) {
+    public Endereco(Integer id, String rua, String cep, Bairro bairro_id, Double distancia_id, Delivery delivery_id, Taxa_Entrega taxaEntrega_id) {
         this.id = id;
         this.rua = rua;
         this.cep = cep;
         this.bairro_id = bairro_id;
-        this.distancia = distancia;
+        this.distancia_id = distancia_id;
         this.delivery_id = delivery_id;
         this.taxaEntrega_id = taxaEntrega_id;
     }
@@ -55,12 +55,12 @@ public class Endereco {
         this.bairro_id = bairro_id;
     }
 
-    public Double getDistancia() {
-        return distancia;
+    public Double getDistancia_id() {
+        return distancia_id;
     }
 
-    public void setDistancia(Double distancia) {
-        this.distancia = distancia;
+    public void setDistancia_id(Double distancia_id) {
+        this.distancia_id = distancia_id;
     }
 
     public Delivery getDelivery_id() {

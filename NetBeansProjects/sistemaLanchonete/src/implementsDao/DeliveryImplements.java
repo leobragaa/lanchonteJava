@@ -161,7 +161,7 @@ public class DeliveryImplements implements DeliveryDao{
         try {
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    "UPDATE carrinho SET chaveEntrega = ?, numero = ?, complemento = ?, endereco = ? WHERE id = ?");
+                    "UPDATE carrinho SET chaveEntrega = ?, numero = ?, complemento = ?, endereco = ?, entrega = ? WHERE id = ?");
                 prepareStatement.setInt(1, delivery.getId());
                 prepareStatement.setInt(2, delivery.getChaveEntrega());
                 prepareStatement.setInt(3, delivery.getNumero());
@@ -180,7 +180,7 @@ public class DeliveryImplements implements DeliveryDao{
         try {
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    "DELETE FROM delivery (id, chaveEntrega, numero, complemento, endereco) VALUES (?, ?, ?, ?, ?)");
+                    "DELETE FROM delivery (id, chaveEntrega, numero, complemento, endereco) VALUES (?, ?, ?, ?, ?, ?)");
                 prepareStatement.setInt(1, delivery.getId());
                 prepareStatement.setInt(2, delivery.getChaveEntrega());
                 prepareStatement.setInt(3, delivery.getNumero());
@@ -189,7 +189,7 @@ public class DeliveryImplements implements DeliveryDao{
                 prepareStatement.setObject(6, delivery.getEntrega_id());
 
         } catch (SQLException ex) {
-            Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao Editar o valor", ex);
+            Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao Deletar", ex);
         }             
     }
 
@@ -199,7 +199,7 @@ public class DeliveryImplements implements DeliveryDao{
         try{
             prepareStatement = Conexao.getConnection()
                     .prepareStatement(
-                    " INSERT INTO carrinho (id, chaveEntrega, numero, complemento, endereco) VALUES (?, ?, ?, ?, ?)");
+                    " INSERT INTO delivery (id, chaveEntrega, numero, complemento, endereco) VALUES (?, ?, ?, ?, ?, ?)");
                 prepareStatement.setInt(1, delivery.getId());
                 prepareStatement.setInt(2, delivery.getChaveEntrega());
                 prepareStatement.setInt(3, delivery.getNumero());
@@ -214,11 +214,35 @@ public class DeliveryImplements implements DeliveryDao{
 
     @Override
     public Delivery findEntregaForDelivery(Entrega entrega_id) {
+        PreparedStatement prepareStatement;
+        try{
+            prepareStatement = Conexao.getConnection()
+                    .prepareStatement("SELECT * FROM delivery WHERE entrega = ?");
+            prepareStatement.setObject(5,entrega_id);
+            
+            ResultSet resultSet = prepareStatement.getResultSet();
+            
+            if(resultSet.next()){
+                Delivery delivery = new Delivery();
+                delivery.setId(resultSet.getInt("id"));
+                delivery.setChaveEntrega(resultSet.getInt("chaveEntrega"));
+                delivery.setNumero(resultSet.getInt("numero"));
+                delivery.setComplemento(resultSet.getString("complemento"));
+                delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
+                delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
+                
+                return delivery;
+            }
+            
+        }catch(SQLException ex){
+            Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao buscar Entrega", ex);
+        }
+        return null;   
     }
     
     @Override
     public List listar() throws SQLException {
-        List<Delivery> carrinhoList = new LinkedList<>();
+        List<Delivery> deliveryList = new LinkedList<>();
         PreparedStatement prepareStatement;
         
         try{
@@ -237,12 +261,12 @@ public class DeliveryImplements implements DeliveryDao{
                 delivery.setEndereco_id((Endereco) resultSet.getObject("endereco"));
                 delivery.setEntrega_id((Entrega) resultSet.getObject("entrega"));
                 
-                carrinhoList.add(delivery);
+                deliveryList.add(delivery);
             }            
         }catch(SQLException ex){
             Logger.getLogger(DeliveryImplements.class.getName()).log(Level.SEVERE, "Erro ao Listar", ex);                        
         }
-        return carrinhoList; 
+        return deliveryList; 
     }
 
 

@@ -3,12 +3,12 @@ package model;
 
 public class Dinheiro {
     private Integer id;
-    private Double valorEntregado;
+    private Double valorEntrega;
     private Met_Pagamento metPagamento_id;
 
-    public Dinheiro(Integer id, Double valorEntregado, Met_Pagamento metPagamento_id) {
+    public Dinheiro(Integer id, Double valorEntrega, Met_Pagamento metPagamento_id) {
         this.id = id;
-        this.valorEntregado = valorEntregado;
+        this.valorEntrega = valorEntrega;
         this.metPagamento_id = metPagamento_id;
     }
 
@@ -23,12 +23,12 @@ public class Dinheiro {
         this.id = id;
     }
 
-    public Double getValorEntregado() {
-        return valorEntregado;
+    public Double getValorEntrega() {
+        return valorEntrega;
     }
 
-    public void setValorEntregado(Double valorEntregado) {
-        this.valorEntregado = valorEntregado;
+    public void setValorEntrega(Double valorEntrega) {
+        this.valorEntrega = valorEntrega;
     }
 
     public Met_Pagamento getMetPagamento_id() {

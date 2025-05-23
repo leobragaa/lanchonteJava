@@ -10,10 +10,10 @@ import model.Taxa_Entrega;
 
 public interface EnderecoDao {
     //
-    public void salvar (EnderecoDao endereco) throws SQLException;
-    public void editar (EnderecoDao endereco) throws SQLException;
+    public void salvar (Endereco endereco) throws SQLException;
+    public void editar (Endereco endereco) throws SQLException;
     public List listar () throws SQLException;
-    public void delete (EnderecoDao endereco) throws SQLException;
+    public void delete (Endereco endereco) throws SQLException;
     //
     public Endereco findIdForEndereco(Integer id);
     public Endereco findRuaForEndereco(String rua_id);
