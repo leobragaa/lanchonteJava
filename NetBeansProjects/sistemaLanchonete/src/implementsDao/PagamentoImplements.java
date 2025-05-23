@@ -2,41 +2,53 @@
 package implementsDao;
 
 import dao.PagamentoDao;
+import java.sql.SQLException;
+import java.util.List;
+import model.Cupom;
+import model.Met_Pagamento;
 import model.Pagamento;
 import model.Pedido;
 
 public class PagamentoImplements implements PagamentoDao{
 
     @Override
-    public void salvar(Pagamento pagamento) {
+    public void salvar(Pagamento pagamento) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void editar(Pagamento pagamento) {
+    public void editar(Pagamento pagamento) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(Pagamento pagamento) {
+    public List listar() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void delete(Pagamento pagamento) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public Pagamento findIdForPagamento(Integer id) {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Pagamento findMetPagamentoForPagamento(Integer metPagamento_id) {
-        return null;
+    public Pagamento findMetPagamentoForPagamento(Met_Pagamento metPagamento_id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public Pagamento findPedidoForPagamento(Pedido pedido_id) {
-        return null;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Pagamento findCupomForPagamento(Integer cupom_id) {
-        return null;
+    public Pagamento findCupomForPagamento(Cupom cupom_id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
