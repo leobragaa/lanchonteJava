@@ -15,5 +15,5 @@ public interface ProdutoDao {
     //
     public Produto findProdutoForId (Integer id);
     public Produto findProdutoForNome (String nome_id);
-    public List<Produto> findProdutoForCarrinho (List<Carrinho> carrinho_id);
+    public Produto findProdutoForCarrinho (List<Carrinho> carrinho_id);
 }
