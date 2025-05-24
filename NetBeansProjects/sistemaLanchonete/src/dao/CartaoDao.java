@@ -11,10 +11,5 @@ public interface CartaoDao {
     public void editar(Cartao cartao) throws SQLException;
     public List listar() throws SQLException;
     public void delete(Cartao cartao) throws SQLException;
-    //
-    public Cartao findIdForCartao (Integer id);
-    public Cartao findTipoPagamentoForCartao (boolean tipoPgamento_id);
-    public Cartao findNumCartaoForCartao (String numCartao_id);
-    public Cartao findCvvForCartao (Integer cvv_id);
-    public Cartao findMetPagamentoForCartao (Met_Pagamento metPagamento_id);
+
 }
