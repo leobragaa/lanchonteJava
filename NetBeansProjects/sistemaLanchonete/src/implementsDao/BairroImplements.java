@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Endereco;
 
 public class BairroImplements implements BairroDao{
 
@@ -80,56 +79,6 @@ public class BairroImplements implements BairroDao{
         } catch (SQLException ex) {
             Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @Override
-    public Bairro findIdForBairro(Integer id) { 
-        PreparedStatement prepareStatement;
-        try{
-            prepareStatement = Conexao.getConnection()
-                    .prepareStatement("SELECT * FROM bairro WHERE id = ?");
-                    prepareStatement.setInt(1,id);
-            ResultSet resultSet = prepareStatement.getResultSet();
-            
-            if(resultSet.next()){
-                Bairro bairro = new Bairro();
-                bairro.setId(resultSet.getInt("id"));
-                bairro.setNome(resultSet.getString("nome"));
-                return bairro;
-            }
-        }catch(SQLException ex){
-            Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao Encontrar id do Bairro", ex);
-
-        }
-        
-        return null;
-    }
-
-    @Override
-    public Bairro findNomeForBairro(String nome_id) {
-        PreparedStatement prepareStatement;
-        try{
-            prepareStatement = Conexao.getConnection()
-                    .prepareStatement("SELECT * FROM bairro WHERE nome = ?");
-            prepareStatement.setString(2,nome_id);
-            ResultSet resultSet = prepareStatement.getResultSet();
-            
-            if(resultSet.next()){
-                Bairro bairro = new Bairro();
-                bairro.setId(resultSet.getInt("id"));
-                bairro.setNome(resultSet.getString("nome"));
-                return bairro;
-            }
-            
-        }catch(SQLException ex){
-            Logger.getLogger(BairroImplements.class.getName()).log(Level.SEVERE, "Erro ao Encontrar Nome do Bairro", ex);
-        }
-        return null;
-    }
-
-    @Override
-    public Bairro findEnderecoForBairro(Endereco endereco_id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
